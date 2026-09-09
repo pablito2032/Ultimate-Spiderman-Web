@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitio tributo a Ultimate Spider-Man (2012), la serie animada de Marvel y Disney XD protagonizada por Peter Parker y su equipo de S.H.I.E.L.D.">
+  <meta name="author" content="Julian Martinez">
+  <title>Ultimate Spider-Man (2012) | Sitio Tributo</title>
+
+  <!-- Tipografias: Bangers (titulos comic) + Oswald (subtitulos) + Barlow (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600;700&family=Barlow:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (iconos de redes sociales) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="icon" href="img/logo-chibi.webp" type="image/webp">
+</head>
+<body>
+
+<a class="salto-contenido" href="#inicio">Saltar al contenido</a>
+
+<!-- ============ CABECERA ============ -->
+<header class="encabezado" id="encabezado">
+  <div class="contenedor encabezado__caja">
+
+    <a class="logo" href="#inicio" aria-label="Ultimate Spider-Man - Inicio">
+      <span class="logo__circulo">
+        <img src="img/logo-chibi.webp" alt="Mascara de Spider-Man dibujada">
+      </span>
+      <span class="logo__texto">
+        <strong>Ultimate</strong>
+        <em>Spider-Man</em>
+      </span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menu de navegacion">
+      <span class="menu-btn__barra"></span>
+      <span class="menu-btn__barra"></span>
+      <span class="menu-btn__barra"></span>
+    </button>
+
+    <nav class="nav" id="navPrincipal">
+      <ul class="nav__lista">
+        <li><a class="nav__enlace" href="#inicio">Inicio</a></li>
+        <li><a class="nav__enlace" href="#temporadas">Temporadas</a></li>
+        <li><a class="nav__enlace" href="#galeria">Galeria</a></li>
+        <li><a class="nav__enlace" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="inicio">
+    <img class="hero__fondo"
+         src="img/hero.png"
+         data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/1/1f/SPIDER-MAN%27S_WEB_WARRIORS_USWW.png"
+         alt="Spider-Man junto a los Web-Warriors en la serie animada">
+    <div class="hero__velo"></div>
+
+    <!-- Telaranas de rincon: una arriba a la izquierda y otra abajo a la derecha -->
+    <span class="telarana telarana--si telarana--xl" aria-hidden="true"></span>
+    <span class="telarana telarana--ii telarana--m" aria-hidden="true"></span>
+
+    <!-- Aranas que se asoman desde los bordes de la pantalla -->
+    <div class="aranas">
+
+      <button type="button" class="arana arana--asomada arana--miles" data-nombre="Miles Morales">
+        <img src="img/spider-miles.webp" alt="">
+        <span class="arana__nombre">Miles Morales</span>
+      </button>
+
+      <button type="button" class="arana arana--asomada arana--scarlet" data-nombre="Scarlet Spider">
+        <img src="img/spider-scarlet.png"
+             data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/da/USM_Scarlet-Spider.png" alt="">
+        <span class="arana__nombre">Scarlet Spider</span>
+      </button>
+
+      <button type="button" class="arana arana--asomada arana--caballero" data-nombre="Spyder-Knight">
+        <img src="img/spider-caballero.png"
+             data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/f/f1/Spyder_Knight.png" alt="">
+        <span class="arana__nombre">Spyder-Knight</span>
+      </button>
+      <!--  
+      <button type="button" class="arana arana--asomada arana--ham" data-nombre="Spider-Ham">
+        <img src="img/spider-ham.webp" alt="">
+        <span class="arana__nombre">Spider-Ham</span>
+      </button>
+      -->
+    </div>
+
+    <div class="contenedor hero__caja">
+
+      <!-- El logo, con Spider-Man 2099 apoyado al costado -->
+      <div class="hero__logo-caja">
+        <img class="hero__logo" src="img/Logo_Ultimate-Spiderman.png" alt="Logotipo oficial de Marvel's Ultimate Spider-Man">
+        <figure class="arana arana--fija arana--2099" aria-hidden="true">
+          <img src="img/spider-2099.png"
+               data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/c/ce/2099.png" alt="">
+          <figcaption class="arana__nombre">Spider-Man 2099</figcaption>
+        </figure>
+      </div>
+
+      <p class="hero__etiqueta">Marvel Animation &middot; Disney XD &middot; 2012 &ndash; 2017</p>
+
+      <h1 class="hero__titulo">
+        <span class="hero__linea">Descubri el Universo de</span>
+        <span class="hero__linea hero__linea--destacada">Ultimate Spider-Man</span>
+      </h1>
+
+      <p class="hero__texto">
+        Peter Parker ya sabe balancearse entre los rascacielos de Nueva York, pero todavia le falta
+        aprender lo mas dificil: trabajar en equipo. Nick Fury lo recluta para S.H.I.E.L.D. y lo pone
+        a entrenar junto a otros cuatro adolescentes con superpoderes. Cuatro temporadas, 104 episodios
+        y un Spidey que rompe la cuarta pared para contarte todo en la cara.
+      </p>
+
+      <!-- Los botones, con Iron Spider trepando al costado -->
+      <div class="hero__acciones">
+        <a class="btn btn--primario" href="#temporadas"><i class="fa-solid fa-play"></i> Ver Temporadas</a>
+        <a class="btn btn--secundario" href="#equipo"><i class="fa-solid fa-users"></i> Conoce al equipo</a>
+        <figure class="arana arana--fija arana--iron" aria-hidden="true">
+          <img src="img/spider-iron.png"
+               data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/9/9d/Iron_Spider_Cho.png" alt="">
+          <figcaption class="arana__nombre">Iron Spider</figcaption>
+        </figure>
+      </div>
+
+      <ul class="hero__datos">
+        <li><strong>4</strong><span>Temporadas</span></li>
+        <li><strong>104</strong><span>Episodios</span></li>
+        <!-- Spider-Man Noir, en blanco y negro, sentado arriba de este dato -->
+        <li class="hero__dato--noir">
+          <figure class="arana arana--fija arana--noir" aria-hidden="true">
+            <img src="img/spider-noir.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/0/0e/Noir.png" alt="">
+            <figcaption class="arana__nombre">Spider-Man Noir</figcaption>
+          </figure>
+          <strong>22'</strong><span>Por capitulo</span>
+        </li>
+      </ul>
+    </div>
+
+    <span class="onoma onoma--hero" aria-hidden="true">THWIP!</span>
+  </section>
+
+  <!-- ============ FRANJA ANIMADA ============ -->
+  <div class="franja" aria-hidden="true">
+    <div class="franja__pista">
+      <span>Un gran poder conlleva una gran responsabilidad</span><span>&#9679;</span>
+      <span>S.H.I.E.L.D. Academy</span><span>&#9679;</span>
+      <span>Web-Warriors</span><span>&#9679;</span>
+      <span>vs. The Sinister 6</span><span>&#9679;</span>
+      <span>Un gran poder conlleva una gran responsabilidad</span><span>&#9679;</span>
+      <span>S.H.I.E.L.D. Academy</span><span>&#9679;</span>
+      <span>Web-Warriors</span><span>&#9679;</span>
+      <span>vs. The Sinister 6</span><span>&#9679;</span>
+    </div>
+  </div>
+
+  <!-- ============ SOBRE LA SERIE ============ -->
+  <section class="seccion seccion--clara" id="serie">
+    <span class="telarana telarana--sd telarana--m telarana--oscura" aria-hidden="true"></span>
+    <span class="onoma onoma--serie onoma--roja" aria-hidden="true">POW!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion">De que va la serie</h2>
+      <p class="bajada">
+        Estrenada el 1 de abril de 2012 en Disney XD, <em>Ultimate Spider-Man</em> reinventa al
+        trepamuros como un pibe de secundaria que, ademas de las clases, tiene que bancarse a un jefe
+        como Nick Fury y a cuatro companeros de equipo tan verdes como el.
+      </p>
+
+      <div class="tarjetas">
+        <article class="tarjeta">
+          <span class="tarjeta__icono"><i class="fa-solid fa-comment-dots"></i></span>
+          <h3>Rompe la cuarta pared</h3>
+          <p>Spidey frena la accion, mira a camara y te explica lo que esta pensando. Ademas la serie corta
+             a secuencias mentales dibujadas en estilo chibi cuando Peter se imagina cosas.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta__icono"><i class="fa-solid fa-user-shield"></i></span>
+          <h3>Escuela de heroes</h3>
+          <p>S.H.I.E.L.D. arma un cuartel secreto debajo de la casa de la tia May y convierte el instituto
+             Midtown en tapadera. Entrenar y aprobar Historia al mismo tiempo no es facil.</p>
+        </article>
+        <article class="tarjeta">
+          <span class="tarjeta__icono"><i class="fa-solid fa-masks-theater"></i></span>
+          <h3>Todo el Universo Marvel</h3>
+          <p>Iron Man, Hulk, Doctor Strange, Los Vengadores, Blade, Deadpool y hasta el Spider-Verso
+             completo pasan por la serie. Cada temporada sube la apuesta.</p>
+        </article>
+      </div>
+
+      <div class="ficha">
+        <span class="telarana telarana--sd telarana--s" aria-hidden="true"></span>
+        <h3 class="ficha__titulo">Ficha tecnica</h3>
+        <dl class="ficha__lista">
+          <div><dt>Titulo original</dt><dd>Marvel's Ultimate Spider-Man</dd></div>
+          <div><dt>Emision</dt><dd>1 de abril de 2012 &ndash; 7 de enero de 2017</dd></div>
+          <div><dt>Cadena</dt><dd>Disney XD</dd></div>
+          <div><dt>Produccion</dt><dd>Marvel Animation / Film Roman</dd></div>
+          <div><dt>Desarrollo</dt><dd>Man of Action (Seagle, Kelly, Casey, Rouleau)</dd></div>
+          <div><dt>Guion y consultoria</dt><dd>Brian Michael Bendis, Paul Dini</dd></div>
+          <div><dt>Musica</dt><dd>Kevin Manthei</dd></div>
+          <div><dt>Formato</dt><dd>4 temporadas &middot; 104 episodios &middot; 22 min</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPO ============ -->
+  <section class="seccion seccion--oscura" id="equipo">
+    <span class="telarana telarana--si telarana--l" aria-hidden="true"></span>
+    <span class="onoma onoma--equipo" aria-hidden="true">BAM!</span>
+    <span class="onoma onoma--equipo2 onoma--blanca" aria-hidden="true">WHAM!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion titulo-seccion--claro">El equipo de S.H.I.E.L.D.</h2>
+      <p class="bajada bajada--clara">
+        Fury no le dio a Peter un companero: le dio cuatro. Pasa el mouse por cada tarjeta para verlos en accion.
+      </p>
+
+      <figure class="banda">
+        <img src="img/equipo.jpg"
+             data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/d7/Promotional_art.jpg"
+             alt="Arte promocional del equipo de Ultimate Spider-Man">
+        <figcaption>Arte promocional oficial de la serie.</figcaption>
+      </figure>
+
+      <div class="heroes">
+
+        <article class="heroe heroe--rojo">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-spiderman.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/6/6d/S1E15_-_Spider-Man%27s_face_close-up.png"
+                 alt="Primer plano de Spider-Man enmascarado">
+            <img class="heroe__img heroe__img--b" src="img/p-spiderman-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/1/13/S01E15_-_Spider-Man_on_the_window.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>Spider-Man</h3>
+            <p class="heroe__alias">Peter Parker</p>
+            <p class="heroe__desc">El lider a la fuerza. Rapido de reflejos y mas rapido de boca. Voz de Drake Bell.</p>
+          </div>
+        </article>
+
+        <article class="heroe heroe--dorado">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-nova.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/ee/Nova~2.png"
+                 alt="Nova con su casco brillando">
+            <img class="heroe__img heroe__img--b" src="img/p-nova-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e3/Spider-Man_and_Ultimate_Nova_1_USWW~2.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>Nova</h3>
+            <p class="heroe__alias">Sam Alexander</p>
+            <p class="heroe__desc">El casco del Cuerpo Nova y cero paciencia. El que mas choca con Peter. Voz de Logan Miller.</p>
+          </div>
+        </article>
+
+        <article class="heroe heroe--blanco">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-tigre.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e7/Profile_-_White_Tiger.png"
+                 alt="White Tiger sobre una azotea">
+            <img class="heroe__img heroe__img--b" src="img/p-tigre-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/2/28/41-1.jpg.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>White Tiger</h3>
+            <p class="heroe__alias">Ava Ayala</p>
+            <p class="heroe__desc">El amuleto del tigre le da fuerza y garras. La mas disciplinada del grupo. Voz de Caitlyn Taylor Love.</p>
+          </div>
+        </article>
+
+        <article class="heroe heroe--amarillo">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-powerman.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/4/4d/Power_Man_USM_001.png"
+                 alt="Power Man en accion">
+            <img class="heroe__img heroe__img--b" src="img/p-powerman-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/8/81/20.jpg.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>Power Man</h3>
+            <p class="heroe__alias">Luke Cage</p>
+            <p class="heroe__desc">Piel indestructible y fuerza sobrehumana. El paragolpes del equipo. Voz de Ogie Banks.</p>
+          </div>
+        </article>
+
+        <article class="heroe heroe--verde">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-ironfist.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/1/15/Iron_Fist_fights_in_Damage.png"
+                 alt="Iron Fist con el puno brillando">
+            <img class="heroe__img heroe__img--b" src="img/p-ironfist-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/5/5b/Iron_Fist_Face.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>Iron Fist</h3>
+            <p class="heroe__alias">Danny Rand</p>
+            <p class="heroe__desc">Artes marciales de K'un-Lun y una frase zen para cada situacion. Voz de Greg Cipes.</p>
+          </div>
+        </article>
+
+        <article class="heroe heroe--negro">
+          <div class="heroe__foto">
+            <img class="heroe__img heroe__img--a" src="img/p-venom.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/c/cf/Agen_00Venom.png"
+                 alt="Agente Venom con el simbionte controlado">
+            <img class="heroe__img heroe__img--b" src="img/p-venom-b.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/ed/Carnage_Agent_Venom.png"
+                 alt="" aria-hidden="true">
+          </div>
+          <div class="heroe__info">
+            <h3>Agente Venom</h3>
+            <p class="heroe__alias">Flash Thompson</p>
+            <p class="heroe__desc">El maton del colegio termina domando al simbionte y sumandose al equipo en la temporada 3.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEMPORADAS ============ -->
+  <section class="seccion seccion--clara" id="temporadas">
+    <span class="telarana telarana--ii telarana--l telarana--oscura" aria-hidden="true"></span>
+    <span class="onoma onoma--temporadas onoma--roja" aria-hidden="true">KRAK!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Las cuatro temporadas</h2>
+      <p class="bajada">26 episodios cada una. De aprender a trabajar en equipo a enfrentar al Sexteto Siniestro definitivo.</p>
+
+      <div class="temporadas">
+
+        <article class="temporada">
+          <div class="temporada__img">
+            <img src="img/t1.jpg"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/0/09/Classic_Team.jpg"
+                 alt="El equipo en el cuartel de S.H.I.E.L.D. en la temporada 1">
+            <span class="temporada__num">01</span>
+          </div>
+          <div class="temporada__cuerpo">
+            <h3>Temporada 1</h3>
+            <p class="temporada__fechas">1 abr 2012 &ndash; 28 oct 2012 &middot; 26 episodios</p>
+            <p>Peter acepta el entrenamiento de S.H.I.E.L.D. y conoce a su equipo. Entre clases y misiones
+               aparecen el Duende Verde, los Cuatro Terribles y el primer contacto con el simbionte.</p>
+          </div>
+        </article>
+
+        <article class="temporada">
+          <div class="temporada__img">
+            <img src="img/t2.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/5/5f/SEASON_2_SPIDER_MAN.png"
+                 alt="Spider-Man en la segunda temporada">
+            <span class="temporada__num">02</span>
+          </div>
+          <div class="temporada__cuerpo">
+            <h3>Temporada 2</h3>
+            <p class="temporada__fechas">21 ene 2013 &ndash; 21 nov 2013 &middot; 26 episodios</p>
+            <p>El Doctor Octopus arma el Sexteto Siniestro y Carnage entra en escena. Peter empieza a
+               ganarse el respeto del equipo mientras la doble vida se le hace cada vez mas pesada.</p>
+          </div>
+        </article>
+
+        <article class="temporada">
+          <div class="temporada__img">
+            <img src="img/t3.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/7/73/NewWebWarriors.png"
+                 alt="Los Web-Warriors reunidos">
+            <span class="temporada__num">03</span>
+          </div>
+          <div class="temporada__cuerpo">
+            <h3>Temporada 3: Web-Warriors</h3>
+            <p class="temporada__fechas">13 mar 2014 &ndash; 24 oct 2015 &middot; 26 episodios</p>
+            <p>Peter arma su propio equipo y la serie se manda con su version del <em>Spider-Verso</em>:
+               Spider-Man Noir, Spider-Girl, Spider-Ham y compania cruzando universos.</p>
+          </div>
+        </article>
+
+        <article class="temporada">
+          <div class="temporada__img">
+            <img src="img/t4.png"
+                 data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/a/ac/Chonewwaariors.png"
+                 alt="Escena de la cuarta temporada de Ultimate Spider-Man">
+            <span class="temporada__num">04</span>
+          </div>
+          <div class="temporada__cuerpo">
+            <h3>Temporada 4: vs. The Sinister 6</h3>
+            <p class="temporada__fechas">21 feb 2016 &ndash; 7 ene 2017 &middot; 26 episodios</p>
+            <p>Spider-Man se gradua de la academia y pasa a ser instructor. Enfrente, Octopus arma
+               el Sexteto Siniestro definitivo para el cierre de la serie.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VILLANOS ============ -->
+  <section class="seccion seccion--villanos" id="villanos">
+    <img class="villanos__retrato"
+         src="img/villano-ock.webp"
+         alt="Doctor Octopus tal como aparece en la serie">
+    <span class="telarana telarana--si telarana--l" aria-hidden="true"></span>
+    <span class="onoma onoma--villanos" aria-hidden="true">KA-BOOM!</span>
+
+    <div class="contenedor villanos__caja">
+      <div class="villanos__texto">
+        <h2 class="titulo-seccion titulo-seccion--claro">El Sexteto Siniestro</h2>
+        <p class="bajada bajada--clara">
+          El Doctor Octopus es el villano que atraviesa las cuatro temporadas. Su obsesion tiene nombre
+          y apellido, y para conseguirlo junta a lo peor de Nueva York.
+        </p>
+        <ul class="villanos__lista">
+          <li><i class="fa-solid fa-bolt"></i> Doctor Octopus</li>
+          <li><i class="fa-solid fa-bolt"></i> Electro</li>
+          <li><i class="fa-solid fa-bolt"></i> Rhino</li>
+          <li><i class="fa-solid fa-bolt"></i> Kraven el Cazador</li>
+          <li><i class="fa-solid fa-bolt"></i> Duende Verde</li>
+          <li><i class="fa-solid fa-bolt"></i> Lagarto / Escorpion</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section class="seccion seccion--clara" id="galeria">
+    <span class="telarana telarana--sd telarana--l telarana--oscura" aria-hidden="true"></span>
+    <span class="onoma onoma--galeria onoma--roja" aria-hidden="true">SNAP!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Galeria</h2>
+      <p class="bajada">Imagenes de las cuatro temporadas. Hace clic en cualquiera para verla en grande y moverte con las flechas.</p>
+
+      <div class="galeria" id="galeria">
+
+        <button class="galeria__item" type="button" data-texto="Trepando por Nueva York">
+          <img src="img/g1.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/7/7b/S01E15_-_Spider-Man_crawls_on_a_building.png" alt="Spider-Man trepando un edificio" loading="lazy">
+          <span class="galeria__pie">Trepando por Nueva York</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="A bordo del Helicarrier">
+          <img src="img/g2.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/5/54/S01E15_-_Spider-Man_Webslings_Nick_Fury%27s_ship.png" alt="Spider-Man colgado de la nave de Nick Fury" loading="lazy">
+          <span class="galeria__pie">A bordo del Helicarrier</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Los Web-Warriors">
+          <img src="img/g3.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/a/ab/Spider-Man_and_the_Web_Warriors_USMWW_3.png" alt="Spider-Man junto a los Web-Warriors" loading="lazy">
+          <span class="galeria__pie">Los Web-Warriors</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="La picadura que empezo todo">
+          <img src="img/g4.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e5/Peter_being_bitten.png" alt="Peter Parker en el momento de la picadura" loading="lazy">
+          <span class="galeria__pie">La picadura que empezo todo</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Companeros, a su manera">
+          <img src="img/g5.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/6/62/S2E04_-_Spider-Man_bangs_on_Nova%27s_helmet.png" alt="Spider-Man golpeando el casco de Nova" loading="lazy">
+          <span class="galeria__pie">Companeros, a su manera</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="La armadura Iron Spider">
+          <img src="img/g6.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/0/07/Iron_Spider_Armor.png" alt="Armadura Iron Spider" loading="lazy">
+          <span class="galeria__pie">La armadura Iron Spider</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="La Dimension de los Suenos">
+          <img src="img/g7.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/c/c7/Spider-Man_in_Dream_Dimension.jpg" alt="Spider-Man en la Dimension de los Suenos" loading="lazy">
+          <span class="galeria__pie">La Dimension de los Suenos</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Con Doctor Strange e Iron Fist">
+          <img src="img/g8.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/f/f8/Spider-Man%2C_Iron_Fist_and_Doctor_Strange_in_the_dream_world.jpg" alt="Spider-Man, Iron Fist y Doctor Strange" loading="lazy">
+          <span class="galeria__pie">Con Doctor Strange e Iron Fist</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Reportandose ante Nick Fury">
+          <img src="img/g9.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/1/19/S01E15_-_Um..._Did_I_hop_on_the_wrong_floating_headquarters_of_a_secret_world_peace_keeping_task_force_again%3F.png" alt="Spider-Man frente a Nick Fury en el Helicarrier" loading="lazy">
+          <span class="galeria__pie">Reportandose ante Nick Fury</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Scarlet Spider contra Kraven">
+          <img src="img/g10.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/d1/Scarlet_Spider_with_Kraven.jpg" alt="Scarlet Spider junto a Kraven el Cazador" loading="lazy">
+          <span class="galeria__pie">Scarlet Spider contra Kraven</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Electro contra los Web-Warriors">
+          <img src="img/g11.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/d9/Electro_against_the_Web_Warriors_USMWW.png" alt="Electro enfrentando a los Web-Warriors" loading="lazy">
+          <span class="galeria__pie">Electro contra los Web-Warriors</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="El equipo de la temporada 3">
+          <img src="img/g12.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/3/33/Web-Warriors.jpg" alt="Los integrantes de los Web-Warriors con sus nombres" loading="lazy">
+          <span class="galeria__pie">El equipo de la temporada 3</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Norman Osborn">
+          <img src="img/g13.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e3/Norman_face.png" alt="Norman Osborn en la serie" loading="lazy">
+          <span class="galeria__pie">Norman Osborn</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-texto="Todo el Spider-Verso">
+          <img src="img/g14.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/2/25/All_Web_Warriors.jpg" alt="Todos los Web-Warriors del Spider-Verso" loading="lazy">
+          <span class="galeria__pie">Todo el Spider-Verso</span>
+        </button>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATOS CURIOSOS ============ -->
+  <section class="seccion seccion--oscura" id="datos">
+    <span class="telarana telarana--id telarana--m" aria-hidden="true"></span>
+    <span class="onoma onoma--datos" aria-hidden="true">ZAP!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion titulo-seccion--claro">Datos que quiza no sabias</h2>
+      <div class="datos">
+        <article class="dato">
+          <h3>J.K. Simmons volvio</h3>
+          <p>El mismo actor que interpreto a J. Jonah Jameson en las peliculas de Sam Raimi le puso la voz
+             al personaje en la serie animada.</p>
+        </article>
+        <article class="dato">
+          <h3>Padrinos de lujo</h3>
+          <p>Brian Michael Bendis, el guionista del comic <em>Ultimate Spider-Man</em>, y Paul Dini
+             (<em>Batman: la serie animada</em>) participaron del equipo creativo.</p>
+        </article>
+        <article class="dato">
+          <h3>Un Spider-Verso antes del Spider-Verso</h3>
+          <p>La temporada 3 adapto el cruce entre universos aranas en 2014, cuatro anos antes de que la
+             idea llegara al cine.</p>
+        </article>
+        <article class="dato">
+          <h3>Se despidio en 2017</h3>
+          <p>El ultimo episodio salio al aire el 7 de enero de 2017, cerrando 104 capitulos y casi cinco
+             anos de emision en Disney XD.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="seccion seccion--clara" id="contacto">
+    <span class="telarana telarana--ii telarana--m telarana--oscura" aria-hidden="true"></span>
+    <span class="onoma onoma--contacto onoma--roja" aria-hidden="true">THWIP!</span>
+
+    <div class="contenedor contacto__caja">
+      <div class="contacto__intro">
+        <h2 class="titulo-seccion">Contacto</h2>
+        <p class="bajada">
+          Si encontraste un dato mal, queres sumar imagenes o simplemente venis a discutir cual es la
+          mejor temporada, escribinos. Se responde rapido, mas rapido que el sentido aracnido.
+        </p>
+        <ul class="contacto__datos">
+          <li><i class="fa-solid fa-envelope"></i> contacto@ultimatespiderman.fan</li>
+          <li><i class="fa-solid fa-location-dot"></i> Nueva York (bueno, Buenos Aires)</li>
+        </ul>
+      </div>
+
+      <form class="formulario" action="#" method="post">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Peter Parker" required>
+        </div>
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Contanos que te parecio la serie..." required></textarea>
+        </div>
+        <button class="btn btn--primario" type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIE DE PAGINA ============ -->
+<footer class="pie">
+  <span class="telarana telarana--si telarana--m" aria-hidden="true"></span>
+  <span class="onoma onoma--pie onoma--blanca" aria-hidden="true">TWIP!</span>
+
+  <div class="contenedor pie__caja">
+
+    <div class="pie__legal">
+      <p class="pie__copy">&copy; 2026 Sitio tributo a <strong>Ultimate Spider-Man</strong>.</p>
+      <p class="pie__nota">
+        Sitio de fans sin fines comerciales. Spider-Man y todos los personajes son marcas registradas de
+        Marvel Characters, Inc. Las imagenes pertenecen a Marvel Animation y Disney XD y se usan
+        unicamente con fines ilustrativos y educativos.
+      </p>
+    </div>
+
+    <div class="pie__redes">
+      <p class="pie__redes-titulo">Seguinos</p>
+      <ul class="redes">
+        <li><a class="redes__enlace redes__enlace--x" href="#" aria-label="X (antes Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--ig" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--fb" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--yt" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============ VISOR DE IMAGENES ============ -->
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Visor de imagenes" hidden>
+  <button class="visor__cerrar" id="visorCerrar" type="button" aria-label="Cerrar visor"><i class="fa-solid fa-xmark"></i></button>
+  <button class="visor__nav visor__nav--prev" id="visorPrev" type="button" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="visor__nav visor__nav--next" id="visorNext" type="button" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  <figure class="visor__figura">
+    <img id="visorImg" src="" alt="">
+    <figcaption>
+      <span id="visorTexto"></span>
+      <span class="visor__contador" id="visorContador"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<a class="arriba" href="#inicio" id="btnArriba" aria-label="Volver arriba"><i class="fa-solid fa-chevron-up"></i></a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
