@@ -469,6 +469,7 @@ textarea:focus-visible {
   cursor: pointer;
   transition: translate .3s ease-out,
               right .45s cubic-bezier(.22,1.2,.36,1),
+              left .45s cubic-bezier(.22,1.2,.36,1),
               bottom .45s cubic-bezier(.22,1.2,.36,1),
               top .45s cubic-bezier(.22,1.2,.36,1);
 }
@@ -509,6 +510,58 @@ textarea:focus-visible {
 .arana--ham:hover, .arana--ham:focus-visible { bottom: -22px; }
 .arana--ham.fijada { bottom: 4%; right: 30%; }
 .arana--ham::after { left: 42%; top: -1.1rem; transform: rotate(90deg); }
+
+/* --- Aranas de la seccion "De que va la serie" ---------------------------
+   Viven por detras de los recuadros (z-index 1 contra el 2 del contenedor).
+   Al hacerles clic se plantan, pasan al frente y se ven enteros.          */
+
+/* La capa no crea contexto de apilado propio: asi cada personaje puede
+   quedar por detras (z-index 1) o por delante (z-index 6) de las cajas. */
+.aranas--serie { z-index: auto; }
+
+/* Las cajas se corren un poco hacia adentro: en ese margen asoman los
+   personajes que estan por detras. */
+#serie .tarjetas,
+#serie .ficha { margin-inline: 1.8rem; }
+
+/* El contenedor deja pasar el mouse por los costados; las cajas no,
+   asi se puede interactuar con la arana que esta detras. */
+#serie .contenedor,
+#serie .tarjetas,
+#serie .bajada { pointer-events: none; }
+#serie .titulo-seccion,
+#serie .tarjeta,
+#serie .ficha { pointer-events: auto; }
+
+.arana--serie { z-index: 1; }
+.arana--serie.fijada { z-index: 6; }
+.arana--serie img { filter: drop-shadow(0 14px 22px rgba(16, 26, 68, .45)); }
+.arana--serie.fijada img { filter: drop-shadow(0 18px 26px rgba(16, 26, 68, .6)); }
+
+/* Spider-Man principal: asoma por detras de las tarjetas, a la izquierda */
+.arana--principal { display: block; width: 190px; top: 27%; left: -32px; }
+.arana--principal.fijada { left: 10px; }
+.arana--principal::after {
+  content: "\f0a7";                    /* manito que apunta hacia abajo */
+  left: 8px;
+  right: auto;
+  top: -1.3rem;
+  animation-name: senalar-abajo;
+}
+
+/* Spider-Ham: del otro lado y mas abajo, a la altura de la ficha tecnica */
+.arana--ham2 { display: none; width: 118px; right: -14px; bottom: 9%; }
+.arana--ham2.fijada { right: 16px; }
+.arana--ham2::after { left: -1.1rem; top: 34%; animation-name: senalar-der; }
+
+@keyframes senalar-der {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(6px); }
+}
+@keyframes senalar-abajo {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
 
 /* --------------------------------------------------------------------------
    9. FRANJA ANIMADA
@@ -1226,6 +1279,8 @@ textarea:focus-visible {
   /* Aranas: Noir sobre el dato y dos asomadas */
   .arana--noir { display: block; }
   .arana--miles, .arana--ham { display: block; }
+  .arana--principal { width: 215px; top: 24%; left: -36px; }
+  .arana--principal.fijada { left: 18px; }
 
   /* Onomatopeyas visibles desde tablet */
   .onoma--hero, .onoma--serie, .onoma--equipo, .onoma--temporadas,
@@ -1235,6 +1290,7 @@ textarea:focus-visible {
   /* Cuadriculas */
   .tarjetas { flex-direction: row; flex-wrap: wrap; }
   .tarjeta { flex: 1 1 calc(50% - .7rem); }
+  #serie .tarjetas, #serie .ficha { margin-inline: 2.6rem; }
 
   .ficha__lista { flex-direction: row; flex-wrap: wrap; gap: 0; }
   .ficha__lista > div { flex: 1 1 calc(50% - .5rem); margin-right: .5rem; }
@@ -1284,6 +1340,14 @@ textarea:focus-visible {
 
   /* Todas las aranas a la vista */
   .arana--fija, .arana--asomada { display: block; }
+
+  #serie .tarjetas, #serie .ficha { margin-inline: 3rem; }
+
+  .arana--principal { width: 300px; top: 28%; left: -26px; }
+  .arana--principal.fijada { left: 48px; }
+
+  .arana--ham2 { display: block; width: 142px; right: -6px; bottom: 11%; }
+  .arana--ham2.fijada { right: 44px; }
   .onoma--equipo2 { display: block; }
 
   .tarjeta { flex: 1 1 calc(33.333% - .95rem); }

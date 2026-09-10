@@ -5,7 +5,8 @@
 #
 #  NOTA: estos archivos YA estan en /img/ y el script NO los toca:
 #        Logo_Ultimate-Spiderman.png, logo-chibi.webp,
-#        spider-miles.webp, spider-ham.webp y villano-ock.webp
+#        spider-miles.webp, spider-ham.webp, spider-principal.webp
+#        y villano-ock.webp
 # ============================================================================
 
 $base = "https://static.wikia.nocookie.net/thedailybugle/images/"
@@ -58,6 +59,8 @@ $imagenes = [ordered]@{
   "g12.jpg"           = "3/33/Web-Warriors.jpg"
   "g13.png"           = "e/e3/Norman_face.png"
   "g14.jpg"           = "2/25/All_Web_Warriors.jpg"
+  "g15.png"           = "e/e5/Carnage-Coming-to-Ultimate-Spider-Man-05.png"
+  "g16.png"           = "9/9f/Spider-Man%27s_Old_Team_and_New_Team_together_USMWW.png"
 }
 
 Write-Host "Descargando $($imagenes.Count) imagenes en: $destino" -ForegroundColor Cyan

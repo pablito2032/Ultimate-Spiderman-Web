@@ -53,19 +53,22 @@
   }
 
   /* ------------------------------------------------------------------
-     4) LOS SPIDER-MAN DEL HERO
+     4) LOS SPIDER-MAN DEL HERO Y DE "DE QUE VA LA SERIE"
         a) se corren un poco siguiendo el mouse
         b) los que se asoman desde el borde quedan fijos al hacerles clic
      ------------------------------------------------------------------ */
-  var hero = document.getElementById('inicio');
-  var aranas = Array.prototype.slice.call(document.querySelectorAll('.arana'));
+  var puedeMoverse = !menosMovimiento && window.matchMedia('(hover: hover)').matches;
 
-  if (hero && aranas.length && !menosMovimiento && window.matchMedia('(hover: hover)').matches) {
+  function seguirElMouse(seccion) {
+    if (!seccion || !puedeMoverse) return;
+    var suyas = Array.prototype.slice.call(seccion.querySelectorAll('.arana'));
+    if (!suyas.length) return;
+
     var pendiente = false;
     var ultimoX = 0, ultimoY = 0;
 
-    hero.addEventListener('mousemove', function (e) {
-      var caja = hero.getBoundingClientRect();
+    seccion.addEventListener('mousemove', function (e) {
+      var caja = seccion.getBoundingClientRect();
       ultimoX = (e.clientX - caja.left) / caja.width - 0.5;
       ultimoY = (e.clientY - caja.top) / caja.height - 0.5;
 
@@ -74,7 +77,7 @@
 
       requestAnimationFrame(function () {
         pendiente = false;
-        aranas.forEach(function (arana, i) {
+        suyas.forEach(function (arana, i) {
           var fuerza = 12 + (i % 4) * 7;
           arana.style.setProperty('--mx', (ultimoX * fuerza).toFixed(1) + 'px');
           arana.style.setProperty('--my', (ultimoY * fuerza * 0.6).toFixed(1) + 'px');
@@ -82,13 +85,16 @@
       });
     });
 
-    hero.addEventListener('mouseleave', function () {
-      aranas.forEach(function (arana) {
+    seccion.addEventListener('mouseleave', function () {
+      suyas.forEach(function (arana) {
         arana.style.setProperty('--mx', '0px');
         arana.style.setProperty('--my', '0px');
       });
     });
   }
+
+  seguirElMouse(document.getElementById('inicio'));
+  seguirElMouse(document.getElementById('serie'));
 
   // Clic: el personaje sale del borde y se planta en su lugar (y vuelve si se repite)
   document.querySelectorAll('.arana--asomada').forEach(function (arana) {
