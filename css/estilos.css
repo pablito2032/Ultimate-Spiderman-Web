@@ -280,7 +280,7 @@ textarea:focus-visible {
   overflow: hidden;
   transition: max-height .35s ease;
 }
-.nav.abierto { max-height: 340px; }
+.nav.abierto { max-height: 560px; }
 
 .nav__lista { display: flex; flex-direction: column; gap: .25rem; padding-block: .5rem 1rem; }
 
@@ -301,6 +301,33 @@ textarea:focus-visible {
 .nav__enlace:focus-visible {
   color: var(--dorado);
   background: rgba(255, 255, 255, .07);
+  border-left-color: var(--rojo);
+}
+
+/* Submenu desplegable de "Temporadas" */
+.nav__item { position: relative; }
+.nav__flecha { font-size: .68em; margin-left: .4em; transition: transform var(--transicion); }
+.nav__item:hover .nav__flecha,
+.nav__item:focus-within .nav__flecha { transform: rotate(180deg); }
+
+.nav__submenu { list-style: none; margin: 0; padding: 0 0 0 .6rem; }
+
+.nav__subenlace {
+  display: block;
+  font-family: var(--f-sub);
+  font-weight: 500;
+  font-size: .86rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #c7cbdb;
+  padding: .5rem .9rem .5rem 1.6rem;
+  border-left: 4px solid transparent;
+  transition: color var(--transicion), background var(--transicion), border-color var(--transicion);
+}
+.nav__subenlace:hover,
+.nav__subenlace:focus-visible {
+  color: var(--dorado);
+  background: rgba(255, 255, 255, .06);
   border-left-color: var(--rojo);
 }
 
@@ -883,6 +910,31 @@ textarea:focus-visible {
 }
 .temporada__cuerpo p { margin: 0; color: #4a4a52; font-size: .97rem; }
 
+.temporada__titulo-enlace {
+  transition: color var(--transicion);
+}
+.temporada__titulo-enlace:hover,
+.temporada__titulo-enlace:focus-visible { color: var(--rojo-fuerte); }
+
+.temporada__enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .9rem;
+  font-family: var(--f-sub);
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rojo-fuerte);
+  transition: gap var(--transicion), color var(--transicion);
+}
+.temporada__enlace i { transition: transform var(--transicion); }
+.temporada__enlace:hover,
+.temporada__enlace:focus-visible { gap: .65rem; color: var(--negro); }
+.temporada__enlace:hover i,
+.temporada__enlace:focus-visible i { transform: translateX(3px); }
+
 /* --------------------------------------------------------------------------
    14. VILLANOS
    -------------------------------------------------------------------------- */
@@ -1265,6 +1317,34 @@ textarea:focus-visible {
   }
   .nav__enlace:hover::after,
   .nav__enlace:focus-visible::after { width: 62%; }
+
+  /* Submenu de "Temporadas": pasa a panel flotante debajo del enlace */
+  .nav__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 195px;
+    margin-top: .4rem;
+    padding: .4rem 0;
+    background: var(--azul-noche);
+    border: 3px solid var(--negro);
+    border-radius: 10px;
+    box-shadow: var(--sombra-chica);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity var(--transicion), transform var(--transicion), visibility var(--transicion);
+    z-index: 10;
+  }
+  .nav__item:hover .nav__submenu,
+  .nav__item:focus-within .nav__submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .nav__subenlace { padding: .55rem 1.1rem; border-left: 0; }
+  .nav__subenlace:hover,
+  .nav__subenlace:focus-visible { border-left: 0; padding-left: 1.35rem; }
 
   .logo__circulo { width: 62px; height: 62px; }
   .logo__texto em { font-size: 1.9rem; }

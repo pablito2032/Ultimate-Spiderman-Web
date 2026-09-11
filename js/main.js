@@ -95,6 +95,7 @@
 
   seguirElMouse(document.getElementById('inicio'));
   seguirElMouse(document.getElementById('serie'));
+  seguirElMouse(document.getElementById('episodios'));
 
   // Clic: el personaje sale del borde y se planta en su lugar (y vuelve si se repite)
   document.querySelectorAll('.arana--asomada').forEach(function (arana) {
@@ -116,7 +117,7 @@
   var visorImg = document.getElementById('visorImg');
   var visorTexto = document.getElementById('visorTexto');
   var visorContador = document.getElementById('visorContador');
-  var items = Array.prototype.slice.call(document.querySelectorAll('.galeria__item'));
+  var items = Array.prototype.slice.call(document.querySelectorAll('.galeria__item, .capitulo__fondo'));
   var actual = 0;
   var ultimoBoton = null;
 
@@ -180,7 +181,7 @@
   /* ------------------------------------------------------------------
      6) APARICION SUAVE AL HACER SCROLL
      ------------------------------------------------------------------ */
-  var animables = document.querySelectorAll('.tarjeta, .heroe, .temporada, .galeria__item, .dato, .ficha');
+  var animables = document.querySelectorAll('.tarjeta, .heroe, .temporada, .galeria__item, .dato, .ficha, .capitulo');
 
   if ('IntersectionObserver' in window && !menosMovimiento) {
     animables.forEach(function (el) {

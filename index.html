@@ -46,7 +46,15 @@
     <nav class="nav" id="navPrincipal">
       <ul class="nav__lista">
         <li><a class="nav__enlace" href="#inicio">Inicio</a></li>
-        <li><a class="nav__enlace" href="#temporadas">Temporadas</a></li>
+        <li class="nav__item">
+          <a class="nav__enlace" href="#temporadas">Temporadas <i class="fa-solid fa-chevron-down nav__flecha" aria-hidden="true"></i></a>
+          <ul class="nav__submenu" aria-label="Las cuatro temporadas">
+            <li><a class="nav__subenlace" href="temporadas/temporada-1.html">Temporada 1</a></li>
+            <li><a class="nav__subenlace" href="#temporada-2">Temporada 2</a></li>
+            <li><a class="nav__subenlace" href="#temporada-3">Temporada 3</a></li>
+            <li><a class="nav__subenlace" href="#temporada-4">Temporada 4</a></li>
+          </ul>
+        </li>
         <li><a class="nav__enlace" href="#galeria">Galeria</a></li>
         <li><a class="nav__enlace" href="#contacto">Contacto</a></li>
       </ul>
@@ -346,7 +354,7 @@
           <div class="heroe__info">
             <h3>Agente Venom</h3>
             <p class="heroe__alias">Flash Thompson</p>
-            <p class="heroe__desc">El maton del colegio termina domando al simbionte y sumandose al equipo en la temporada 3.</p>
+            <p class="heroe__desc">El bully del colegio termina domando al simbionte y sumandose al equipo en la temporada 3.</p>
           </div>
         </article>
 
@@ -365,7 +373,7 @@
 
       <div class="temporadas">
 
-        <article class="temporada">
+        <article class="temporada" id="temporada-1">
           <div class="temporada__img">
             <img src="img/t1.jpg"
                  data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/0/09/Classic_Team.jpg"
@@ -373,14 +381,15 @@
             <span class="temporada__num">01</span>
           </div>
           <div class="temporada__cuerpo">
-            <h3>Temporada 1</h3>
+            <h3><a class="temporada__titulo-enlace" href="temporadas/temporada-1.html">Temporada 1</a></h3>
             <p class="temporada__fechas">1 abr 2012 &ndash; 28 oct 2012 &middot; 26 episodios</p>
             <p>Peter acepta el entrenamiento de S.H.I.E.L.D. y conoce a su equipo. Entre clases y misiones
                aparecen el Duende Verde, los Cuatro Terribles y el primer contacto con el simbionte.</p>
+            <a class="temporada__enlace" href="temporadas/temporada-1.html">Ver los 26 capitulos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </div>
         </article>
 
-        <article class="temporada">
+        <article class="temporada" id="temporada-2">
           <div class="temporada__img">
             <img src="img/t2.png"
                  data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/5/5f/SEASON_2_SPIDER_MAN.png"
@@ -395,7 +404,7 @@
           </div>
         </article>
 
-        <article class="temporada">
+        <article class="temporada" id="temporada-3">
           <div class="temporada__img">
             <img src="img/t3.png"
                  data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/7/73/NewWebWarriors.png"
@@ -410,7 +419,7 @@
           </div>
         </article>
 
-        <article class="temporada">
+        <article class="temporada" id="temporada-4">
           <div class="temporada__img">
             <img src="img/t4.png"
                  data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/a/ac/Chonewwaariors.png"

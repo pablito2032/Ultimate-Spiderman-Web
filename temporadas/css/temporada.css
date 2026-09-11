@@ -1,0 +1,490 @@
+/* ==========================================================================
+   ULTIMATE SPIDER-MAN (2012) - Paginas de temporada
+   Hoja de estilos especifica para /temporadas/*.html
+   Se carga DESPUES de ../css/estilos.css: reutiliza sus variables, el reset,
+   los botones, la cabecera, el pie, las telaranas y las onomatopeyas.
+   Metodologia: Mobile First + Flexbox (igual que el resto del sitio).
+   ========================================================================== */
+
+/* Un color nuevo, solo para la franja izquierda del fondo de la seccion de
+   episodios: un rojo vino, distinto del --rojo de siempre para que no se
+   confundan. La franja derecha usa --azul-oscuro (el mismo azul que ya
+   tienen las tarjetas .capitulo--oscura y la .ficha), no un color nuevo. */
+:root {
+  --vino: #7a2038;
+}
+
+/* --------------------------------------------------------------------------
+   1. MIGAS DE PAN (volver a Temporadas)
+   -------------------------------------------------------------------------- */
+.migas {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  transition: gap var(--transicion), color var(--transicion);
+}
+.migas:hover,
+.migas:focus-visible { gap: .75rem; color: #fff; }
+.migas i { transition: transform var(--transicion); }
+.migas:hover i { transform: translateX(-3px); }
+
+/* --------------------------------------------------------------------------
+   2. HERO DE LA TEMPORADA
+   -------------------------------------------------------------------------- */
+.temporada-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 52vh;
+  padding-block: 2.6rem 2.4rem;
+  background: var(--azul-noche);
+  border-bottom: 6px solid var(--negro);
+}
+.temporada-hero__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  filter: saturate(1.15) contrast(1.05);
+  opacity: .5;
+}
+.temporada-hero__velo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(10, 15, 44, .92) 0%, rgba(10, 15, 44, .62) 48%, rgba(10, 15, 44, .18) 100%),
+    linear-gradient(180deg, rgba(10, 15, 44, .2) 0%, rgba(10, 15, 44, 0) 30%, rgba(10, 15, 44, .82) 100%);
+}
+.temporada-hero__caja { position: relative; z-index: 2; color: var(--blanco); }
+
+.temporada-hero__titulo {
+  font-family: var(--f-titulo);
+  font-size: clamp(2.2rem, 9vw, 4rem);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--negro), 6px 6px 0 rgba(226, 54, 54, .55);
+}
+
+.temporada-hero__texto {
+  max-width: 58ch;
+  margin: .8rem 0 0;
+  color: #e6e8f0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .9);
+}
+
+.temporada-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.3rem;
+  margin: 1.2rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #d7dae5;
+}
+.temporada-hero__meta li { display: flex; align-items: center; gap: .4rem; }
+.temporada-hero__meta i { color: var(--rojo); }
+
+/* --------------------------------------------------------------------------
+   3. ONOMATOPEYA PROPIA DE ESTA PAGINA
+   -------------------------------------------------------------------------- */
+.onoma--t1hero  { right: 5%; top: 10%; --giro: 8deg;   display: none; }
+.onoma--t1lista { right: 6%; top: 10px; --giro: -10deg; display: none; }
+
+/* --------------------------------------------------------------------------
+   4. LISTA DE CAPITULOS
+   -------------------------------------------------------------------------- */
+.capitulos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.capitulo {
+  position: relative;
+  overflow: hidden;
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-chica);
+  scroll-margin-top: 180px;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+.capitulo:hover,
+.capitulo:focus-within { transform: translate(-4px, -4px); box-shadow: var(--sombra); }
+
+/* Fondo: el fotograma del episodio. Es un boton real (abre el visor) que en
+   mobile actua como textura de baja opacidad "detras" del texto, y en
+   escritorio pasa a ser un panel visible pegado al borde derecho. */
+.capitulo__fondo {
+  all: unset;
+  display: block;
+  position: absolute;
+  inset: 0;
+  cursor: zoom-in;
+}
+.capitulo__fondo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+  opacity: .48;
+  filter: saturate(1.2) contrast(1.1);
+  transition: opacity .4s ease, transform .5s ease, filter .4s ease;
+}
+.capitulo__fondo::after {
+  content: "\f00e";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--rojo);
+  border: 3px solid var(--negro);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(-50%) scale(.7);
+  transition: opacity var(--transicion), transform var(--transicion), background var(--transicion);
+}
+.capitulo:hover .capitulo__fondo::after,
+.capitulo__fondo:focus-visible::after { opacity: 1; transform: translateY(-50%) scale(1); }
+.capitulo:hover .capitulo__fondo img,
+.capitulo__fondo:focus-visible img { transform: scale(1.05); filter: saturate(1.3); }
+.capitulo__fondo:focus-visible::after { background: var(--rojo-fuerte); }
+
+/* Velo: mantiene el texto legible sobre el fotograma de fondo */
+.capitulo__velo {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 247, 245, .58);
+  pointer-events: none;
+}
+
+.capitulo__cuerpo {
+  position: relative;
+  z-index: 3;
+  padding: 1.5rem 1.35rem 1.6rem;
+}
+
+.capitulo__cabecera {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .15rem .7rem;
+  margin-bottom: .3rem;
+}
+.capitulo__num {
+  font-family: var(--f-titulo);
+  font-size: 1.5rem;
+  letter-spacing: .03em;
+  color: var(--rojo);
+  -webkit-text-stroke: 1.3px var(--negro);
+}
+.capitulo__titulo {
+  margin: 0;
+  font-family: var(--f-sub);
+  font-weight: 700;
+  font-size: 1.28rem;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+}
+.capitulo__fecha {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin: 0 0 .8rem;
+  font-family: var(--f-sub);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+
+.capitulo__desc { margin: 0; color: #4a4a52; }
+
+.capitulo__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: .9rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.capitulo__etiquetas li {
+  font-family: var(--f-sub);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(16, 16, 20, .06);
+  border: 1.5px solid rgba(16, 16, 20, .2);
+  border-radius: 999px;
+  padding: .25rem .65rem;
+  transition: background var(--transicion), border-color var(--transicion), transform var(--transicion);
+}
+.capitulo__etiquetas li:hover { background: var(--rojo); border-color: var(--negro); color: #fff; transform: translateY(-2px); }
+
+.capitulo__dato {
+  margin: 1rem 0 0;
+  padding: .55rem .8rem;
+  border-left: 4px solid var(--rojo);
+  background: rgba(226, 54, 54, .06);
+  font-size: .87rem;
+  color: #4a4a52;
+}
+.capitulo__dato strong {
+  display: block;
+  margin-bottom: .1rem;
+  font-family: var(--f-sub);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rojo-fuerte);
+}
+
+/* Variante oscura, alternada, para marcar ritmo en una lista larga */
+.capitulo--oscura { background: var(--azul-oscuro); }
+.capitulo--oscura .capitulo__velo { background: rgba(16, 26, 68, .58); }
+.capitulo--oscura .capitulo__titulo { color: var(--blanco); }
+.capitulo--oscura .capitulo__fecha { color: var(--dorado); }
+.capitulo--oscura .capitulo__desc { color: #ccd0de; }
+.capitulo--oscura .capitulo__num { color: var(--dorado); }
+.capitulo--oscura .capitulo__etiquetas li { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .25); color: #fff; }
+.capitulo--oscura .capitulo__etiquetas li:hover { background: var(--rojo); }
+.capitulo--oscura .capitulo__dato { border-left-color: var(--dorado); background: rgba(255, 255, 255, .06); color: #ccd0de; }
+.capitulo--oscura .capitulo__dato strong { color: var(--dorado); }
+
+/* --------------------------------------------------------------------------
+   5. SECCION DE EPISODIOS: fondo de dos franjas + elenco flotante
+   El elenco (personajes de la temporada, tipo ".arana" del hero) y las
+   telaranas/onomatopeyas extra solo se activan en escritorio (>= 64em):
+   son las que le hacen lugar corriendo los capitulos a la izquierda.
+   -------------------------------------------------------------------------- */
+
+/* Fondo: franja vino a la izquierda + franja azul (el mismo --azul-oscuro de
+   las tarjetas) a la derecha, cada una degradando a blanco antes de
+   fundirse con el hueso del medio (que sigue siendo el color mas grande,
+   como en el resto del sitio). */
+#episodios {
+  background:
+    linear-gradient(to right, var(--vino) 0%, #fff 20%, rgba(255, 255, 255, 0) 32%),
+    linear-gradient(to left,  var(--azul-oscuro) 0%, #fff 20%, rgba(255, 255, 255, 0) 32%),
+    var(--hueso);
+}
+
+/* Elenco flotante: reusa ".arana" / ".arana--fija" de estilos.css (misma
+   base que los Spider-Man del hero), con dos variantes propias de esta
+   pagina segun la imagen fuente disponible para cada personaje. */
+
+/* "suelto": recorte con fondo transparente, flota libre (igual que en el hero) */
+.arana--suelto img { filter: drop-shadow(0 10px 16px rgba(0, 0, 0, .55)); }
+
+/* "panel": la imagen no esta recortada, asi que se enmarca como una caja de
+   comic mas (borde + sombra dura), con un poco de inclinacion. Usa
+   aspect-ratio en vez de un alto fijo para que el ancho clamp() de cada
+   personaje defina tambien el alto. La inclinacion de cada personaje se
+   guarda en --giro-panel (variable propia, no confundir con --giro de las
+   onomatopeyas) para poder sumarle el levantamiento del hover sin pisarla:
+   como el transform final se escribe una sola vez por estado (reposo /
+   hover), rotar y levantar a la vez es cuestion de encadenar las dos
+   funciones en la MISMA declaracion. */
+.arana--panel {
+  aspect-ratio: 3 / 4;
+  border: 4px solid var(--negro);
+  border-radius: 8px;
+  box-shadow: var(--sombra-chica);
+  background: var(--negro);
+  transform: rotate(var(--giro-panel, 0deg));
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+/* Marco interno que RECORTA la foto. Es imprescindible: en CSS un hijo se
+   pinta por encima del borde de su padre, asi que sin este recorte el zoom
+   del hover hace que la imagen se desborde y tape el borde negro del panel.
+   Es el mismo patron que ya usan .heroe__foto, .temporada__img y
+   .galeria__item en la hoja principal. El figcaption queda FUERA de este
+   marco, por eso el cartelito del nombre puede seguir saliendo hacia
+   afuera sin que lo recorten. */
+.arana__foto {
+  display: block;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.arana--panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+  transition: transform var(--transicion);
+}
+/* Al pasar el mouse, la tarjeta ENTERA se levanta (borde y sombra incluidos,
+   igual que cualquier otra caja del sitio) y la imagen de adentro hace un
+   pequeno zoom — el mismo combo que usan las tarjetas de #equipo. */
+.arana--panel:hover,
+.arana--panel:focus-visible {
+  transform: rotate(var(--giro-panel, 0deg)) translate(-4px, -4px);
+  box-shadow: var(--sombra);
+}
+.arana--panel:hover img,
+.arana--panel:focus-visible img { transform: scale(1.08); }
+
+/* El cartelito de nombre, en el elenco, sale hacia AFUERA (al costado
+   derecho, alejandose de la figura) en vez de subir desde abajo como en el
+   hero: tiene mas sentido para una columna de personajes pegada al borde
+   derecho de la pantalla. */
+#episodios .arana__nombre {
+  left: auto;
+  right: -.4rem;
+  bottom: auto;
+  top: 50%;
+  white-space: nowrap;
+  font-size: .54rem;
+  letter-spacing: .07em;
+  padding: .1rem .45rem;
+  transform: translateY(-50%) translateX(4px);
+}
+#episodios .arana:hover .arana__nombre,
+#episodios .arana:focus-visible .arana__nombre {
+  opacity: 1;
+  transform: translateY(-50%) translateX(1.1rem);
+}
+
+.onoma--t1elenco1, .onoma--t1elenco2 { display: none; }
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE - TABLET (>= 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+
+  .temporada-hero { min-height: 46vh; padding-block: 3.2rem; }
+
+  .onoma--t1hero, .onoma--t1lista { display: block; }
+
+  /* El capitulo deja de ocupar todo el ancho de forma pareja: el texto se
+     acomoda a la izquierda y el fotograma pasa a ser un panel real, pegado
+     al borde derecho de la tarjeta. */
+  .capitulo { min-height: 250px; display: flex; align-items: center; }
+
+  .capitulo__fondo { inset: 0 0 0 auto; left: auto; width: 44%; }
+  .capitulo__fondo img {
+    opacity: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+            mask-image: linear-gradient(to right, transparent 0%, #000 28%);
+  }
+
+  .capitulo__velo {
+    background: linear-gradient(100deg,
+      rgba(247, 247, 245, 1) 0%,
+      rgba(247, 247, 245, 1) 50%,
+      rgba(247, 247, 245, .7) 62%,
+      rgba(247, 247, 245, 0) 78%);
+  }
+  .capitulo--oscura .capitulo__velo {
+    background: linear-gradient(100deg,
+      rgba(16, 26, 68, 1) 0%,
+      rgba(16, 26, 68, 1) 50%,
+      rgba(16, 26, 68, .7) 62%,
+      rgba(16, 26, 68, 0) 78%);
+  }
+
+  .capitulo__cuerpo { max-width: 58%; padding: 1.9rem 1.7rem; }
+  .capitulo__titulo { font-size: 1.4rem; }
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE - ESCRITORIO (>= 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+
+  .temporada-hero { min-height: 50vh; }
+  .temporada-hero__titulo { font-size: clamp(2.8rem, 6vw, 4.4rem); }
+
+  .capitulo { min-height: 270px; }
+  .capitulo__fondo { width: 40%; }
+  .capitulo__cuerpo { max-width: 56%; padding: 2.1rem 2rem; }
+  .capitulo__desc { font-size: 1.02rem; }
+
+  /* Ancho de la caja de capitulos.
+     No se fija por breakpoint: se CALCULA a partir de donde arranca el
+     elenco, asi el hueco que queda a la derecha es siempre igual al margen
+     que hay a la izquierda (4%), en cualquier monitor.
+
+     El personaje que mas se mete hacia la izquierda es cualquiera de los que
+     estan en right: 11% con ancho clamp(210px, 15vw, 400px) (Doc Ock, Venom,
+     Hulk). Su borde izquierdo cae en:  100% - 11% - ancho.
+     Para dejarle 4% de aire, el margen derecho de la caja tiene que ser:
+         11% + ancho + 4%  =  15% + clamp(210px, 15vw, 400px)
+
+     OJO: hace falta width:auto porque .contenedor trae width:100% de la hoja
+     principal, y con un ancho fijo los margenes no definirian la caja. */
+  #episodios .contenedor {
+    width: auto;
+    max-width: 1400px;
+    margin-left: 4%;
+    margin-right: calc(15% + clamp(210px, 15vw, 400px));
+  }
+
+  /* La caja se hizo mas ancha, asi que se le pone un tope a la medida de
+     linea del texto: mas de ~66 caracteres por renglon se vuelve incomodo de
+     leer. El fotograma de la derecha se queda con el resto. */
+  .capitulo__cuerpo { max-width: min(56%, 66ch); }
+
+  .onoma--t1elenco1 { display: block; right: 6%; top: 29%; --giro: 7deg; }
+  .onoma--t1elenco2 { display: block; right: 7%; top: 63%; --giro: -8deg; }
+
+  /* Elenco de la temporada 1: recurrentes arriba, despues en orden de
+     aparicion. "Spider-Man" es el piso de tamano (lo que se ve al pasar el
+     mouse sirvio de referencia): todos los demas son ese tamano o mas
+     grandes, nunca mas chicos. Varian tambien la proporcion/inclinacion
+     (algunos panel bien vertical, otros mas cuadrados, giros para los dos
+     lados) para que la columna no se vea repetida. El "right" de cada uno
+     esta calculado con getBoundingClientRect() en 1280/1366/1440/1920px
+     contra el borde real de .capitulo, no a ojo — si se agrega o mueve un
+     personaje, volver a medir en esos anchos antes de dar por bueno. */
+  .arana--t1-spiderman { width: clamp(190px, 13vw, 340px); top: 1%;  right: 5%; }
+  .arana--t1-fury      { width: clamp(190px, 13vw, 340px); top: 9%;  right: 11%; --giro-panel: -4deg; }
+  .arana--t1-coulson   { width: clamp(180px, 11vw, 300px); top: 17%; right: 5%;  --giro-panel: 3deg; }
+  .arana--t1-ock       { width: clamp(210px, 15vw, 400px); top: 25%; right: 11%; }
+  .arana--t1-doom      { width: clamp(190px, 13vw, 340px); top: 34%; right: 5%;  --giro-panel: 3deg; }
+  .arana--t1-venom     { width: clamp(210px, 20vw, 380px); top: 43%; right: 11%; }
+  .arana--t1-ironman   { width: clamp(190px, 13vw, 340px); top: 52%; right: 5%; }
+  .arana--t1-hulk       { width: clamp(210px, 15vw, 400px); top: 61%; right: 11%; }
+  .arana--t1-thor       { width: clamp(190px, 13vw, 340px); top: 70%; right: 5%;  --giro-panel: 5deg; }
+  .arana--t1-beetle    { width: clamp(180px, 11vw, 300px); top: 79%; right: 11%; --giro-panel: -4deg; }
+  .arana--t1-goblin    { width: clamp(210px, 15vw, 380px); top: 88%; right: 5%; }
+
+  /* Encuadre de cada foto dentro de su panel (segun de donde sale recortada) */
+  .arana--t1-spiderman img { object-position: center 22%; }
+  .arana--t1-fury img      { object-position: center 30%; }
+  .arana--t1-doom img      { object-position: center 20%; }
+  .arana--t1-coulson img   { object-position: center 15%; }
+  .arana--t1-thor img      { object-position: center 12%; }
+  .arana--t1-beetle img    { object-position: 52% 40%; }
+}
+
+/* En monitores anchos la caja ya es bastante mas larga que antes, asi que el
+   fotograma gana un poco de ancho para que la tarjeta no quede con un hueco
+   entre el final del texto y la foto. */
+@media (min-width: 90em) {
+  .capitulo__fondo { width: 44%; }
+  .capitulo__cuerpo { max-width: min(54%, 66ch); }
+}
