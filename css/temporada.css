@@ -1,7 +1,7 @@
 /* ==========================================================================
    ULTIMATE SPIDER-MAN (2012) - Paginas de temporada
-   Hoja de estilos especifica para /temporadas/*.html
-   Se carga DESPUES de ../css/estilos.css: reutiliza sus variables, el reset,
+   Hoja de estilos especifica para temporada-N.html
+   Se carga DESPUES de css/estilos.css: reutiliza sus variables, el reset,
    los botones, la cabecera, el pie, las telaranas y las onomatopeyas.
    Metodologia: Mobile First + Flexbox (igual que el resto del sitio).
    ========================================================================== */

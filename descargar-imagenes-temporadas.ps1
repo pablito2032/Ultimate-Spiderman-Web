@@ -1,5 +1,5 @@
 # ============================================================================
-#  Descarga las imagenes de los episodios (por temporada) a /temporadas/img/
+#  Descarga las imagenes de los episodios (por temporada) a /img/
 #  Uso: clic derecho sobre este archivo -> "Ejecutar con PowerShell"
 #  (o desde PowerShell:  .\descargar-imagenes-temporadas.ps1 )
 #
@@ -71,4 +71,4 @@ foreach ($nombre in $imagenes.Keys) {
   }
 }
 
-Write-Host "Listo. Abri temporadas/temporada-1.html en el navegador." -ForegroundColor Cyan
+Write-Host "Listo. Abri temporada-1.html en el navegador." -ForegroundColor Cyan
