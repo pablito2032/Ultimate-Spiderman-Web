@@ -68,7 +68,9 @@ button { font: inherit; color: inherit; }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
   outline: 3px dashed var(--rojo);
   outline-offset: 3px;
 }
@@ -91,6 +93,26 @@ textarea:focus-visible {
   z-index: 999;
 }
 .salto-contenido:focus { left: 1rem; top: 1rem; }
+
+/* Migas de pan: el "volver a..." que llevan arriba todas las paginas internas
+   (temporada-N.html, galeria.html, contacto.html). Vive aca, y no en la hoja
+   de una pagina, porque lo comparten las tres. */
+.migas {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  transition: gap var(--transicion), color var(--transicion);
+}
+.migas:hover,
+.migas:focus-visible { gap: .75rem; color: #fff; }
+.migas i { transition: transform var(--transicion); }
+.migas:hover i { transform: translateX(-3px); }
 
 /* --------------------------------------------------------------------------
    3. TELARANAS DE RINCON
@@ -160,7 +182,7 @@ textarea:focus-visible {
 .onoma--equipo2    { right: 5%;      top: 12%;        --giro: 11deg;  display: none; }
 .onoma--temporadas { right: 3%;      top: 10%;        --giro: -8deg;  display: none; }
 .onoma--villanos   { left: 3%;       bottom: 8%;      --giro: -7deg;  display: none; }
-.onoma--galeria    { left: 3%;       bottom: 5%;      --giro: 10deg;  display: none; }
+.onoma--seguir     { left: 3%;       bottom: 5%;      --giro: 10deg;  display: none; }
 .onoma--datos      { left: 4%;       top: 15%;        --giro: -11deg; display: none; }
 .onoma--contacto   { left: 3%;       bottom: 9%;      --giro: 8deg;   display: none; }
 .onoma--pie        { right: 1.5rem;  bottom: .6rem;   --giro: -9deg;  display: none; font-size: 1.9rem; }
@@ -670,6 +692,69 @@ textarea:focus-visible {
 
 .bajada { max-width: 68ch; font-size: 1.03rem; color: #4a4a52; margin: 0 0 2.2rem; }
 .bajada--clara { color: #ccd0de; }
+
+/* Botonera al pie de una seccion: los adelantos de la home la usan para
+   mandar a galeria.html y a contacto.html */
+.seccion__accion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin: 2rem 0 0;
+}
+
+/* "Seguir explorando": las tarjetas-enlace que cierran index.html, galeria.html
+   y contacto.html. Estan aca y no en paginas.css porque las usan las tres. */
+.enlaces { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.enlace-tarjeta {
+  display: flex;
+  flex: 1 1 100%;
+  flex-direction: column;
+  gap: .4rem;
+  padding: 1.2rem 1.2rem 1.1rem;
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+.enlace-tarjeta:hover,
+.enlace-tarjeta:focus-visible { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--negro); }
+
+.enlace-tarjeta__icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: .3rem;
+  color: #fff;
+  background: var(--rojo);
+  border: 3px solid var(--negro);
+  border-radius: 50%;
+}
+
+.enlace-tarjeta__titulo {
+  margin: 0;
+  font-family: var(--f-titulo);
+  font-size: 1.5rem;
+  letter-spacing: .02em;
+  color: var(--azul-oscuro);
+}
+.enlace-tarjeta__texto { margin: 0; font-size: .95rem; color: #4a4a52; }
+/* El "ir ->" se va al fondo de la tarjeta (margin-top:auto) para que los tres
+   queden a la misma altura aunque un texto sea mas corto que el otro */
+.enlace-tarjeta__ir {
+  margin-top: auto;
+  padding-top: .6rem;
+  font-family: var(--f-sub);
+  font-size: .76rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rojo);
+}
+.enlace-tarjeta__ir i { transition: transform var(--transicion); }
+.enlace-tarjeta:hover .enlace-tarjeta__ir i { transform: translateX(4px); }
 
 /* --------------------------------------------------------------------------
    11. TARJETAS "SOBRE LA SERIE"
@@ -1185,7 +1270,8 @@ textarea:focus-visible {
   color: var(--azul-oscuro);
 }
 .campo input,
-.campo textarea {
+.campo textarea,
+.campo select {
   font-family: var(--f-texto);
   font-size: 1rem;
   color: var(--negro);
@@ -1196,12 +1282,21 @@ textarea:focus-visible {
   transition: border-color var(--transicion), box-shadow var(--transicion);
 }
 .campo input:focus,
-.campo textarea:focus {
+.campo textarea:focus,
+.campo select:focus {
   border-color: var(--rojo);
   box-shadow: 4px 4px 0 rgba(226, 54, 54, .35);
   outline: none;
 }
 .campo textarea { resize: vertical; }
+.campo select { cursor: pointer; }
+
+/* Aclaracion al pie del formulario (contacto.html) */
+.formulario__aviso {
+  margin: .9rem 0 0;
+  font-size: .82rem;
+  color: var(--gris);
+}
 
 /* --------------------------------------------------------------------------
    19. PIE DE PAGINA
@@ -1364,7 +1459,7 @@ textarea:focus-visible {
 
   /* Onomatopeyas visibles desde tablet */
   .onoma--hero, .onoma--serie, .onoma--equipo, .onoma--temporadas,
-  .onoma--villanos, .onoma--galeria, .onoma--datos, .onoma--contacto,
+  .onoma--villanos, .onoma--seguir, .onoma--datos, .onoma--contacto,
   .onoma--pie { display: block; }
 
   /* Cuadriculas */
@@ -1383,6 +1478,7 @@ textarea:focus-visible {
   .temporada { flex: 1 1 calc(50% - .8rem); }
 
   .galeria__item { flex: 0 1 calc(50% - .5rem); }
+  .enlace-tarjeta { flex: 1 1 calc(50% - .5rem); }
 
   .dato { flex: 1 1 calc(50% - .6rem); }
 
@@ -1439,6 +1535,7 @@ textarea:focus-visible {
   .temporada__num { font-size: 3.6rem; }
 
   .galeria__item { flex: 0 1 calc(33.333% - .7rem); }
+  .enlace-tarjeta { flex: 1 1 calc(33.333% - .7rem); }
 
   .dato { flex: 1 1 calc(25% - .9rem); }
 

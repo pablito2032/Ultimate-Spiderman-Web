@@ -1,0 +1,402 @@
+/* ==========================================================================
+   ULTIMATE SPIDER-MAN (2012) - Paginas internas (galeria.html / contacto.html)
+   Se carga DESPUES de css/estilos.css: reutiliza sus variables, el reset,
+   los botones, la cabecera, el pie, las telaranas, las onomatopeyas, la
+   galeria y el formulario. Aca solo va lo que estas dos paginas agregan.
+   Metodologia: Mobile First + Flexbox (igual que el resto del sitio).
+
+   Indice
+   1. Hero de pagina interna
+   2. Filtros de la galeria
+   3. Bloque de ayuda del visor
+   4. Pagina de contacto: redes, preguntas frecuentes
+   5. Personajes flotantes y tarjetas de escena
+   6. Onomatopeyas propias de estas paginas
+   7. Responsive - tablet (>= 48em / 768px)
+   8. Responsive - escritorio (>= 64em / 1024px)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO DE PAGINA INTERNA
+   Misma receta que el hero de las temporadas: foto de fondo + velo de
+   gradientes para que el texto se lea, con las migas de pan arriba.
+   -------------------------------------------------------------------------- */
+.pagina-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: 44vh;
+  padding-block: 2.6rem 2.4rem;
+  background: var(--azul-noche);
+  border-bottom: 6px solid var(--negro);
+}
+.pagina-hero__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 32%;
+  filter: saturate(1.15) contrast(1.05);
+  opacity: .5;
+}
+.pagina-hero__velo {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 70% at 88% 12%, rgba(226, 54, 54, .35) 0%, transparent 62%),
+    linear-gradient(100deg, rgba(10, 15, 44, .93) 0%, rgba(10, 15, 44, .66) 50%, rgba(10, 15, 44, .2) 100%),
+    linear-gradient(180deg, rgba(10, 15, 44, .2) 0%, rgba(10, 15, 44, 0) 32%, rgba(10, 15, 44, .85) 100%);
+}
+.pagina-hero__caja { position: relative; z-index: 2; color: var(--blanco); }
+
+.pagina-hero__titulo {
+  font-family: var(--f-titulo);
+  font-size: clamp(2.2rem, 9vw, 4rem);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 0 var(--negro), 6px 6px 0 rgba(226, 54, 54, .55);
+}
+
+.pagina-hero__texto {
+  max-width: 58ch;
+  margin: .8rem 0 0;
+  color: #e6e8f0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .9);
+}
+
+.pagina-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem 1.3rem;
+  margin: 1.2rem 0 0;
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #d7dae5;
+}
+.pagina-hero__meta li { display: flex; align-items: center; gap: .4rem; }
+.pagina-hero__meta i { color: var(--rojo); }
+
+/* --------------------------------------------------------------------------
+   2. FILTROS DE LA GALERIA
+   Botones-chapita para ver solo un grupo de imagenes. El JS de js/galeria.js
+   les pone .activo y esconde lo que no entra con .galeria__item--oculta.
+   -------------------------------------------------------------------------- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-bottom: 1.4rem;
+}
+
+.filtro {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .5rem .95rem;
+  font-family: var(--f-sub);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--negro);
+  background: var(--blanco);
+  border: 3px solid var(--negro);
+  border-radius: 999px;
+  box-shadow: var(--sombra-chica);
+  cursor: pointer;
+  transition: transform var(--transicion), box-shadow var(--transicion),
+              background var(--transicion), color var(--transicion);
+}
+.filtro:hover,
+.filtro:focus-visible { transform: translate(-3px, -3px); box-shadow: 7px 7px 0 var(--negro); }
+
+.filtro.activo { background: var(--rojo); color: #fff; }
+
+.filtro__cuenta {
+  font-size: .68rem;
+  padding: .05rem .4rem;
+  border-radius: 999px;
+  background: rgba(16, 16, 20, .12);
+}
+.filtro.activo .filtro__cuenta { background: rgba(0, 0, 0, .28); }
+
+/* Lo que el filtro deja afuera */
+.galeria__item--oculta { display: none; }
+
+.galeria__cuenta {
+  margin: 1.1rem 0 0;
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+/* --------------------------------------------------------------------------
+   3. BLOQUE DE AYUDA DEL VISOR
+   Un aviso chico explicando como se maneja el visor de imagenes.
+   -------------------------------------------------------------------------- */
+.ayuda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem 1.6rem;
+  margin-bottom: 1.6rem;
+  padding: .9rem 1.1rem;
+  background: var(--azul-oscuro);
+  color: #e6e8f0;
+  border: var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-chica);
+  font-family: var(--f-sub);
+  font-size: .76rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.ayuda li { display: flex; align-items: center; gap: .5rem; }
+.ayuda i { color: var(--dorado); }
+.ayuda kbd {
+  font-family: var(--f-sub);
+  font-size: .72rem;
+  padding: .1rem .45rem;
+  color: var(--negro);
+  background: var(--hueso);
+  border: 2px solid var(--negro);
+  border-radius: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   4. PAGINA DE CONTACTO: redes y preguntas frecuentes
+   -------------------------------------------------------------------------- */
+.contacto__redes { margin-top: 1.6rem; }
+
+/* Los iconos de redes estan pensados para el pie (fondo oscuro): sobre el
+   hueso de esta seccion hay que darlos vuelta o no se ven */
+.contacto__redes .redes__enlace {
+  color: var(--azul-oscuro);
+  background: var(--blanco);
+  border-color: var(--negro);
+  box-shadow: var(--sombra-chica);
+}
+.contacto__redes .redes__enlace:hover,
+.contacto__redes .redes__enlace:focus-visible {
+  color: #fff;
+  background: var(--azul-oscuro);
+  box-shadow: 0 6px 0 var(--negro);
+}
+.contacto__redes .redes__enlace--x:hover  { background: #000; }
+.contacto__redes .redes__enlace--ig:hover { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+.contacto__redes .redes__enlace--fb:hover { background: #1877f2; }
+.contacto__redes .redes__enlace--yt:hover { background: #ff0000; }
+.contacto__redes-titulo {
+  font-family: var(--f-sub);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--azul-oscuro);
+  margin: 0 0 .7rem;
+}
+
+/* Preguntas frecuentes: son <details>, se abren sin nada de JS */
+.faq { display: flex; flex-direction: column; gap: 1rem; }
+
+.faq__item {
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-chica);
+  overflow: hidden;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+.faq__item:hover { transform: translate(-4px, -4px); box-shadow: var(--sombra); }
+
+.faq__pregunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.1rem;
+  font-family: var(--f-sub);
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--azul-oscuro);
+}
+.faq__pregunta::-webkit-details-marker { display: none; }
+.faq__pregunta::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: .8rem;
+  color: var(--rojo);
+  transition: transform var(--transicion);
+}
+.faq__item[open] .faq__pregunta::after { transform: rotate(180deg); }
+.faq__item[open] .faq__pregunta { border-bottom: 3px solid var(--negro); }
+
+.faq__respuesta { margin: 0; padding: 1rem 1.1rem; color: #4a4a52; }
+
+/* --------------------------------------------------------------------------
+   5. PERSONAJES FLOTANTES Y TARJETAS DE ESCENA
+
+   Los personajes reutilizan el sistema .arana / .arana--fija de estilos.css
+   (seccion 8): son <figure aria-hidden="true"> dentro de un .aranas, no se
+   pueden clickear y solo se levantan al pasar el mouse. Las cuatro imagenes
+   ya vienen con fondo transparente del wiki, no hubo que recortarlas.
+
+   Ojo: .arana--fija trae display:none de estilos.css, asi que cada personaje
+   tiene que encenderse a mano en el breakpoint donde entra (secciones 7 y 8).
+   -------------------------------------------------------------------------- */
+
+/* Los que van dentro de una seccion con texto quedan DETRAS de las cajas,
+   igual que los de #serie en la home: la capa no puede crear contexto de
+   apilado propio (z-index: auto) para que el hijo compita con .contenedor. */
+.aranas--detras { z-index: auto; }
+.arana--detras  { z-index: 1; }
+
+/* galeria.html: Spider-Man colgado de su telarana, en el hero */
+.arana--gal-colgado {
+  top: -12px;
+  right: 7%;
+  width: clamp(110px, 11vw, 185px);
+}
+
+/* galeria.html: Spider-Woman, arriba a la derecha de la seccion clara de la
+   galeria, asomando por detras del bloque de ayuda y de los filtros. */
+.arana--gal-woman {
+  right: -1%;
+  top: 10px;
+  width: clamp(150px, 14vw, 240px);
+}
+
+/* contacto.html: Spider-Man senalando al que lee, en el hero.
+   Va despegado del borde de abajo: si queda pegado se le cortan las piernas y
+   el cartelito del nombre (que sale por debajo de la figura) no entra. */
+.arana--con-senala {
+  right: 6%;
+  bottom: 3.4rem;
+  width: clamp(140px, 13vw, 225px);
+}
+
+/* contacto.html: Spider-Man saludando, al costado de las preguntas */
+.arana--con-saluda {
+  right: 1%;
+  top: 22%;
+  width: clamp(130px, 13vw, 230px);
+}
+
+/* --- Tarjeta de escena: una captura de la serie + su texto --- */
+.escena {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.4rem;
+  background: var(--blanco);
+  border: var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  transition: transform var(--transicion), box-shadow var(--transicion);
+}
+.escena:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0 var(--negro); }
+
+.escena__foto {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: var(--borde);
+}
+.escena__foto img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; transition: transform .45s ease; }
+.escena:hover .escena__foto img { transform: scale(1.06); }
+
+.escena__epigrafe {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.4rem .9rem .6rem;
+  font-family: var(--f-sub);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+}
+
+.escena__cuerpo { padding: 1.3rem 1.2rem; }
+.escena__titulo {
+  margin: 0 0 .5rem;
+  font-family: var(--f-titulo);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  letter-spacing: .02em;
+  color: var(--azul-oscuro);
+}
+.escena__texto { margin: 0 0 1.1rem; color: #4a4a52; }
+
+/* Version oscura, para cuando la tarjeta cae en una seccion oscura */
+.escena--oscura { background: var(--azul-oscuro); }
+.escena--oscura .escena__titulo { color: var(--dorado); }
+.escena--oscura .escena__texto  { color: #ccd0de; }
+
+/* --------------------------------------------------------------------------
+   6. ONOMATOPEYAS PROPIAS DE ESTAS PAGINAS
+   Igual que las de estilos.css: ocultas en telefono, se encienden en 48em.
+   -------------------------------------------------------------------------- */
+.onoma--galhero  { right: 4%;  bottom: 16%; --giro: 9deg;   display: none; }
+.onoma--galgrid  { left: 3%;   bottom: 4%;  --giro: -11deg; display: none; }
+.onoma--conhero  { right: 6%;  top: 14%;    --giro: -9deg;  display: none; }
+.onoma--confaq   { right: 4%;  bottom: 6%;  --giro: 7deg;   display: none; }
+.onoma--enlaces  { right: 4%;  top: 16%;    --giro: -8deg;  display: none; }
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE - TABLET (>= 48em / 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 48em) {
+  .pagina-hero { min-height: 48vh; padding-block: 3.2rem 3rem; }
+
+  .onoma--galhero, .onoma--galgrid, .onoma--conhero,
+  .onoma--confaq, .onoma--enlaces { display: block; }
+
+  .contacto__redes { margin-top: 2rem; }
+  /* en el pie los iconos van a la derecha (estilos.css); aca, alineados con
+     el texto que tienen arriba */
+  .contacto__redes .redes { justify-content: flex-start; }
+
+  /* Los personajes de los dos hero ya entran: ahi el texto ocupa la mitad
+     izquierda y la derecha esta libre */
+  .arana--gal-colgado,
+  .arana--con-senala { display: block; }
+
+  /* La tarjeta de escena pasa a dos columnas: foto a la izquierda, texto a la
+     derecha (la misma idea que .capitulo en las paginas de temporada) */
+  .escena { flex-direction: row; align-items: stretch; }
+  .escena__foto { flex: 0 0 42%; border-bottom: 0; border-right: var(--borde); }
+  .escena__foto img { height: 100%; aspect-ratio: auto; }
+  .escena__cuerpo {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.6rem 1.6rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE - ESCRITORIO (>= 64em / 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 64em) {
+  .pagina-hero { min-height: 52vh; }
+
+  /* El bloque de preguntas se corre a la izquierda para dejarle lugar al
+     personaje que queda al costado */
+  .faq { max-width: 760px; }
+
+  /* Los que van dentro de una seccion con texto recien entran aca, que es
+     donde empieza a sobrar margen al costado del .contenedor */
+  .arana--gal-woman,
+  .arana--con-saluda { display: block; }
+
+  .escena__foto { flex: 0 0 38%; }
+}

@@ -61,6 +61,17 @@ $imagenes = [ordered]@{
   "g14.jpg"           = "2/25/All_Web_Warriors.jpg"
   "g15.png"           = "e/e5/Carnage-Coming-to-Ultimate-Spider-Man-05.png"
   "g16.png"           = "9/9f/Spider-Man%27s_Old_Team_and_New_Team_together_USMWW.png"
+
+  # --- Personajes y escenas de galeria.html y contacto.html ---
+  # El wiki sirve estos archivos convertidos a webp aunque el nombre original
+  # diga .png, por eso se guardan con extension .webp (es el formato real).
+  # Los cuatro personajes ya vienen con fondo transparente, no hay que recortarlos.
+  "spider-colgado.webp"   = "f/f7/Spidey_2.png"
+  "spider-woman.webp"     = "2/25/USM_Spider-Woman.png"
+  "spider-senalando.webp" = "b/bd/Spidey_3.png"
+  "spider-saludando.webp" = "b/bf/Spidey_5.png"
+  "escena-jjj.webp"       = "f/f1/J._Jonah_Jameson_face.png"
+  "escena-telefono.webp"  = "a/a4/Norman_on_the_Phone.png"
 }
 
 Write-Host "Descargando $($imagenes.Count) imagenes en: $destino" -ForegroundColor Cyan

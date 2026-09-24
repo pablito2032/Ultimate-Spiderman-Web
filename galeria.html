@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galería de Ultimate Spider-Man (2012): 16 imágenes de las cuatro temporadas, con filtros por grupo y visor a pantalla completa.">
+  <title>Galería | Ultimate Spider-Man (2012)</title>
+
+  <!-- Tipografias: Bangers (titulos comic) + Oswald (subtitulos) + Barlow (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Oswald:wght@400;600;700&family=Barlow:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Hoja de estilos principal + la de las paginas internas -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/paginas.css">
+  <link rel="icon" href="img/logo-chibi.webp" type="image/webp">
+</head>
+<body>
+
+<a class="salto-contenido" href="#hero">Saltar al contenido</a>
+
+<!-- ============ CABECERA ============ -->
+<header class="encabezado" id="encabezado">
+  <div class="contenedor encabezado__caja">
+
+    <a class="logo" href="index.html#inicio" aria-label="Ultimate Spider-Man - Inicio">
+      <span class="logo__circulo">
+        <img src="img/logo-chibi.webp" alt="Máscara de Spider-Man dibujada">
+      </span>
+      <span class="logo__texto">
+        <strong>Ultimate</strong>
+        <em>Spider-Man</em>
+      </span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navPrincipal" aria-label="Abrir menú de navegación">
+      <span class="menu-btn__barra"></span>
+      <span class="menu-btn__barra"></span>
+      <span class="menu-btn__barra"></span>
+    </button>
+
+    <nav class="nav" id="navPrincipal">
+      <ul class="nav__lista">
+        <li><a class="nav__enlace" href="index.html#inicio">Inicio</a></li>
+        <li class="nav__item">
+          <a class="nav__enlace" href="index.html#temporadas">Temporadas <i class="fa-solid fa-chevron-down nav__flecha" aria-hidden="true"></i></a>
+          <ul class="nav__submenu" aria-label="Las cuatro temporadas">
+            <li><a class="nav__subenlace" href="temporada-1.html">Temporada 1</a></li>
+            <li><a class="nav__subenlace" href="index.html#temporada-2">Temporada 2</a></li>
+            <li><a class="nav__subenlace" href="index.html#temporada-3">Temporada 3</a></li>
+            <li><a class="nav__subenlace" href="index.html#temporada-4">Temporada 4</a></li>
+          </ul>
+        </li>
+        <li><a class="nav__enlace" href="galeria.html" aria-current="page">Galería</a></li>
+        <li><a class="nav__enlace" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO DE LA GALERIA ============ -->
+  <section class="pagina-hero" id="hero">
+    <img class="pagina-hero__fondo"
+         src="img/g14.jpg"
+         data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/2/25/All_Web_Warriors.jpg"
+         alt="Todos los Web-Warriors del Spider-Verso reunidos">
+    <div class="pagina-hero__velo"></div>
+
+    <span class="telarana telarana--sd telarana--l" aria-hidden="true"></span>
+    <span class="onoma onoma--galhero onoma--roja" aria-hidden="true">SNAP!</span>
+
+    <!-- Spider-Man colgado de su telarana, mirando las fotos al reves -->
+    <div class="aranas" aria-hidden="true">
+      <figure class="arana arana--fija arana--gal-colgado">
+        <img src="img/spider-colgado.webp"
+             data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/f/f7/Spidey_2.png"
+             alt="">
+        <figcaption class="arana__nombre">Spider-Man</figcaption>
+      </figure>
+    </div>
+
+    <div class="contenedor pagina-hero__caja">
+      <a class="migas" href="index.html#inicio"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i> Volver al inicio</a>
+
+      <h1 class="pagina-hero__titulo">Galería</h1>
+
+      <p class="pagina-hero__texto">
+        Dieciséis imágenes de las cuatro temporadas: el primer equipo de S.H.I.E.L.D., los Web-Warriors,
+        los villanos que se les cruzaron y el Spider-Verso entero. Filtrá por grupo o hacé clic en
+        cualquiera para verla en grande.
+      </p>
+
+      <ul class="pagina-hero__meta">
+        <li><i class="fa-solid fa-images" aria-hidden="true"></i> 16 imágenes</li>
+        <li><i class="fa-solid fa-filter" aria-hidden="true"></i> 5 grupos</li>
+        <li><i class="fa-solid fa-expand" aria-hidden="true"></i> Visor a pantalla completa</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FRANJA ANIMADA ============ -->
+  <div class="franja" aria-hidden="true">
+    <div class="franja__pista">
+      <span>Marvel Animation</span><span>&#9679;</span>
+      <span>Disney XD</span><span>&#9679;</span>
+      <span>104 episodios</span><span>&#9679;</span>
+      <span>2012 - 2017</span><span>&#9679;</span>
+      <span>Marvel Animation</span><span>&#9679;</span>
+      <span>Disney XD</span><span>&#9679;</span>
+      <span>104 episodios</span><span>&#9679;</span>
+      <span>2012 - 2017</span><span>&#9679;</span>
+    </div>
+  </div>
+
+  <!-- ============ LAS IMAGENES ============ -->
+  <section class="seccion seccion--clara" id="imagenes">
+    <span class="telarana telarana--ii telarana--m telarana--oscura" aria-hidden="true"></span>
+    <span class="onoma onoma--galgrid onoma--roja" aria-hidden="true">POW!</span>
+
+    <!-- Spider-Woman, arriba a la derecha, asomando por detras del contenido -->
+    <div class="aranas aranas--detras" aria-hidden="true">
+      <figure class="arana arana--fija arana--detras arana--gal-woman">
+        <img src="img/spider-woman.webp"
+             data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/2/25/USM_Spider-Woman.png"
+             alt="">
+        <figcaption class="arana__nombre">Spider-Woman</figcaption>
+      </figure>
+    </div>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Todas las imágenes</h2>
+      <p class="bajada">
+        Salen del wiki <em>The Daily Bugle</em> y pertenecen a Marvel Animation y Disney XD. Están
+        agrupadas por tema para que sea más fácil encontrar lo que buscás.
+      </p>
+
+      <ul class="ayuda">
+        <li><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i> Clic para ampliar</li>
+        <li><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> <kbd>&larr;</kbd> <kbd>&rarr;</kbd> para moverte</li>
+        <li><i class="fa-solid fa-xmark" aria-hidden="true"></i> <kbd>Esc</kbd> para cerrar</li>
+        <li><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> En el celular, deslizá</li>
+      </ul>
+
+      <div class="filtros" role="group" aria-label="Filtrar las imágenes por grupo">
+        <button class="filtro activo" type="button" data-filtro="todas" aria-pressed="true">Todas <span class="filtro__cuenta">16</span></button>
+        <button class="filtro" type="button" data-filtro="spidey" aria-pressed="false">Spider-Man <span class="filtro__cuenta">4</span></button>
+        <button class="filtro" type="button" data-filtro="equipo" aria-pressed="false">El equipo <span class="filtro__cuenta">4</span></button>
+        <button class="filtro" type="button" data-filtro="shield" aria-pressed="false">S.H.I.E.L.D. <span class="filtro__cuenta">2</span></button>
+        <button class="filtro" type="button" data-filtro="villanos" aria-pressed="false">Villanos <span class="filtro__cuenta">4</span></button>
+        <button class="filtro" type="button" data-filtro="spiderverso" aria-pressed="false">Spider-Verso <span class="filtro__cuenta">2</span></button>
+      </div>
+
+      <div class="galeria">
+
+        <button class="galeria__item" type="button" data-grupo="spidey" data-texto="Trepando por Nueva York">
+          <img src="img/g1.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/7/7b/S01E15_-_Spider-Man_crawls_on_a_building.png" alt="Spider-Man trepando un edificio" loading="lazy">
+          <span class="galeria__pie">Trepando por Nueva York</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="shield" data-texto="A bordo del Helicarrier">
+          <img src="img/g2.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/5/54/S01E15_-_Spider-Man_Webslings_Nick_Fury%27s_ship.png" alt="Spider-Man colgado de la nave de Nick Fury" loading="lazy">
+          <span class="galeria__pie">A bordo del Helicarrier</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="equipo" data-texto="Los Web-Warriors">
+          <img src="img/g3.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/a/ab/Spider-Man_and_the_Web_Warriors_USMWW_3.png" alt="Spider-Man junto a los Web-Warriors" loading="lazy">
+          <span class="galeria__pie">Los Web-Warriors</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="spidey" data-texto="La picadura que empezó todo">
+          <img src="img/g4.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e5/Peter_being_bitten.png" alt="Peter Parker en el momento de la picadura" loading="lazy">
+          <span class="galeria__pie">La picadura que empezó todo</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="equipo" data-texto="Compañeros, a su manera">
+          <img src="img/g5.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/6/62/S2E04_-_Spider-Man_bangs_on_Nova%27s_helmet.png" alt="Spider-Man golpeando el casco de Nova" loading="lazy">
+          <span class="galeria__pie">Compañeros, a su manera</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="spidey" data-texto="La armadura Iron Spider">
+          <img src="img/g6.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/0/07/Iron_Spider_Armor.png" alt="Armadura Iron Spider" loading="lazy">
+          <span class="galeria__pie">La armadura Iron Spider</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="spidey" data-texto="La Dimensión de los Sueños">
+          <img src="img/g7.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/c/c7/Spider-Man_in_Dream_Dimension.jpg" alt="Spider-Man en la Dimensión de los Sueños" loading="lazy">
+          <span class="galeria__pie">La Dimensión de los Sueños</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="equipo" data-texto="Con Doctor Strange e Iron Fist">
+          <img src="img/g8.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/f/f8/Spider-Man%2C_Iron_Fist_and_Doctor_Strange_in_the_dream_world.jpg" alt="Spider-Man, Iron Fist y Doctor Strange" loading="lazy">
+          <span class="galeria__pie">Con Doctor Strange e Iron Fist</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="shield" data-texto="Reportándose ante Nick Fury">
+          <img src="img/g9.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/1/19/S01E15_-_Um..._Did_I_hop_on_the_wrong_floating_headquarters_of_a_secret_world_peace_keeping_task_force_again%3F.png" alt="Spider-Man frente a Nick Fury en el Helicarrier" loading="lazy">
+          <span class="galeria__pie">Reportándose ante Nick Fury</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="villanos" data-texto="Scarlet Spider contra Kraven">
+          <img src="img/g10.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/d1/Scarlet_Spider_with_Kraven.jpg" alt="Scarlet Spider junto a Kraven el Cazador" loading="lazy">
+          <span class="galeria__pie">Scarlet Spider contra Kraven</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="villanos" data-texto="Electro contra los Web-Warriors">
+          <img src="img/g11.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/d/d9/Electro_against_the_Web_Warriors_USMWW.png" alt="Electro enfrentando a los Web-Warriors" loading="lazy">
+          <span class="galeria__pie">Electro contra los Web-Warriors</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="equipo" data-texto="El equipo de la temporada 3">
+          <img src="img/g12.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/3/33/Web-Warriors.jpg" alt="Los integrantes de los Web-Warriors con sus nombres" loading="lazy">
+          <span class="galeria__pie">El equipo de la temporada 3</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="villanos" data-texto="Norman Osborn">
+          <img src="img/g13.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e3/Norman_face.png" alt="Norman Osborn en la serie" loading="lazy">
+          <span class="galeria__pie">Norman Osborn</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="spiderverso" data-texto="Todo el Spider-Verso">
+          <img src="img/g14.jpg" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/2/25/All_Web_Warriors.jpg" alt="Todos los Web-Warriors del Spider-Verso" loading="lazy">
+          <span class="galeria__pie">Todo el Spider-Verso</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="villanos" data-texto="Spider-Man poseído por Carnage">
+          <img src="img/g15.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/e/e5/Carnage-Coming-to-Ultimate-Spider-Man-05.png" alt="Spider-Man transformado por el simbionte Carnage" loading="lazy">
+          <span class="galeria__pie">Spider-Man poseído por Carnage</span>
+        </button>
+
+        <button class="galeria__item" type="button" data-grupo="spiderverso" data-texto="El equipo viejo y el nuevo, juntos">
+          <img src="img/g16.png" data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/9/9f/Spider-Man%27s_Old_Team_and_New_Team_together_USMWW.png" alt="El primer equipo y los Web-Warriors reunidos" loading="lazy">
+          <span class="galeria__pie">El equipo viejo y el nuevo, juntos</span>
+        </button>
+
+      </div>
+
+      <p class="galeria__cuenta" id="galeriaCuenta" role="status">Mostrando las 16 imágenes</p>
+
+      <!-- Tarjeta de escena: el que compraria estas fotos -->
+      <article class="escena">
+        <figure class="escena__foto">
+          <img src="img/escena-jjj.webp"
+               data-respaldo="https://static.wikia.nocookie.net/thedailybugle/images/f/f1/J._Jonah_Jameson_face.png"
+               alt="J. Jonah Jameson gritando en el Daily Bugle" loading="lazy">
+          <figcaption class="escena__epigrafe">J. Jonah Jameson en el Daily Bugle</figcaption>
+        </figure>
+        <div class="escena__cuerpo">
+          <h3 class="escena__titulo">¿Tenés una foto mejor?</h3>
+          <p class="escena__texto">
+            En la serie, Peter se gana unos pesos vendiéndole fotos de Spider-Man a J. Jonah Jameson,
+            que después las usa para cargarlo en la tapa. Acá no hay tapa ni sueldo, pero si ves una
+            imagen de la serie que merece estar en esta galería, mandánosla: la verificamos y la sumamos.
+          </p>
+          <p class="seccion__accion">
+            <a class="btn btn--primario" href="contacto.html"><i class="fa-solid fa-paper-plane"></i> Mandanos la foto</a>
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ SEGUIR EXPLORANDO ============ -->
+  <section class="seccion seccion--oscura" id="seguir">
+    <span class="telarana telarana--id telarana--m" aria-hidden="true"></span>
+    <span class="onoma onoma--enlaces" aria-hidden="true">THWIP!</span>
+
+    <div class="contenedor">
+      <h2 class="titulo-seccion titulo-seccion--claro">Seguir explorando</h2>
+      <p class="bajada bajada--clara">Si llegaste hasta el final de la galería, por acá sigue el resto del sitio.</p>
+
+      <div class="enlaces">
+
+        <a class="enlace-tarjeta" href="temporada-1.html">
+          <span class="enlace-tarjeta__icono"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
+          <h3 class="enlace-tarjeta__titulo">Temporada 1</h3>
+          <p class="enlace-tarjeta__texto">Los 26 episodios uno por uno, con imagen, resumen y un dato de cada capítulo.</p>
+          <span class="enlace-tarjeta__ir">Ir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+
+        <a class="enlace-tarjeta" href="index.html#equipo">
+          <span class="enlace-tarjeta__icono"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+          <h3 class="enlace-tarjeta__titulo">El equipo</h3>
+          <p class="enlace-tarjeta__texto">Quién es quién en el equipo de S.H.I.E.L.D.: los seis integrantes y sus poderes.</p>
+          <span class="enlace-tarjeta__ir">Ir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+
+        <a class="enlace-tarjeta" href="contacto.html">
+          <span class="enlace-tarjeta__icono"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></span>
+          <h3 class="enlace-tarjeta__titulo">Contacto</h3>
+          <p class="enlace-tarjeta__texto">¿Viste un dato mal o querés sumar una imagen? Escribinos, se responde rápido.</p>
+          <span class="enlace-tarjeta__ir">Ir <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PIE DE PAGINA ============ -->
+<footer class="pie">
+  <span class="telarana telarana--si telarana--m" aria-hidden="true"></span>
+  <span class="onoma onoma--pie onoma--blanca" aria-hidden="true">TWIP!</span>
+
+  <div class="contenedor pie__caja">
+
+    <div class="pie__legal">
+      <p class="pie__copy">&copy; 2026 Sitio tributo a <strong>Ultimate Spider-Man</strong>.</p>
+      <p class="pie__nota">
+        Sitio de fans sin fines comerciales. Spider-Man y todos los personajes son marcas registradas de
+        Marvel Characters, Inc. Las imágenes pertenecen a Marvel Animation y Disney XD y se usan
+        únicamente con fines ilustrativos y educativos.
+      </p>
+    </div>
+
+    <div class="pie__redes">
+      <p class="pie__redes-titulo">Seguinos</p>
+      <ul class="redes">
+        <li><a class="redes__enlace redes__enlace--x" href="#" aria-label="X (antes Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--ig" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--fb" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+        <li><a class="redes__enlace redes__enlace--yt" href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============ VISOR DE IMAGENES ============ -->
+<div class="visor" id="visor" role="dialog" aria-modal="true" aria-label="Visor de imágenes" hidden>
+  <button class="visor__cerrar" id="visorCerrar" type="button" aria-label="Cerrar visor"><i class="fa-solid fa-xmark"></i></button>
+  <button class="visor__nav visor__nav--prev" id="visorPrev" type="button" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="visor__nav visor__nav--next" id="visorNext" type="button" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+  <figure class="visor__figura">
+    <img id="visorImg" src="" alt="">
+    <figcaption>
+      <span id="visorTexto"></span>
+      <span class="visor__contador" id="visorContador"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<a class="arriba" href="#hero" id="btnArriba" aria-label="Volver arriba"><i class="fa-solid fa-chevron-up"></i></a>
+
+<script src="js/main.js"></script>
+<script src="js/galeria.js"></script>
+</body>
+</html>

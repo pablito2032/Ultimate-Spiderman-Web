@@ -15,27 +15,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   1. MIGAS DE PAN (volver a Temporadas)
-   -------------------------------------------------------------------------- */
-.migas {
-  display: inline-flex;
-  align-items: center;
-  gap: .45rem;
-  font-family: var(--f-sub);
-  font-size: .78rem;
-  font-weight: 600;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--dorado);
-  transition: gap var(--transicion), color var(--transicion);
-}
-.migas:hover,
-.migas:focus-visible { gap: .75rem; color: #fff; }
-.migas i { transition: transform var(--transicion); }
-.migas:hover i { transform: translateX(-3px); }
-
-/* --------------------------------------------------------------------------
-   2. HERO DE LA TEMPORADA
+   1. HERO DE LA TEMPORADA
    -------------------------------------------------------------------------- */
 .temporada-hero {
   position: relative;
@@ -98,13 +78,13 @@
 .temporada-hero__meta i { color: var(--rojo); }
 
 /* --------------------------------------------------------------------------
-   3. ONOMATOPEYA PROPIA DE ESTA PAGINA
+   2. ONOMATOPEYA PROPIA DE ESTA PAGINA
    -------------------------------------------------------------------------- */
 .onoma--t1hero  { right: 5%; top: 10%; --giro: 8deg;   display: none; }
 .onoma--t1lista { right: 6%; top: 10px; --giro: -10deg; display: none; }
 
 /* --------------------------------------------------------------------------
-   4. LISTA DE CAPITULOS
+   3. LISTA DE CAPITULOS
    -------------------------------------------------------------------------- */
 .capitulos {
   display: flex;
@@ -273,7 +253,7 @@
 .capitulo--oscura .capitulo__dato strong { color: var(--dorado); }
 
 /* --------------------------------------------------------------------------
-   5. SECCION DE EPISODIOS: fondo de dos franjas + elenco flotante
+   4. SECCION DE EPISODIOS: fondo de dos franjas + elenco flotante
    El elenco (personajes de la temporada, tipo ".arana" del hero) y las
    telaranas/onomatopeyas extra solo se activan en escritorio (>= 64em):
    son las que le hacen lugar corriendo los capitulos a la izquierda.
@@ -371,7 +351,7 @@
 .onoma--t1elenco1, .onoma--t1elenco2 { display: none; }
 
 /* --------------------------------------------------------------------------
-   6. RESPONSIVE - TABLET (>= 48em / 768px)
+   5. RESPONSIVE - TABLET (>= 48em / 768px)
    -------------------------------------------------------------------------- */
 @media (min-width: 48em) {
 
@@ -411,7 +391,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. RESPONSIVE - ESCRITORIO (>= 64em / 1024px)
+   6. RESPONSIVE - ESCRITORIO (>= 64em / 1024px)
    -------------------------------------------------------------------------- */
 @media (min-width: 64em) {
 

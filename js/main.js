@@ -30,7 +30,7 @@
     menuBtn.addEventListener('click', function () {
       var abierto = nav.classList.toggle('abierto');
       menuBtn.setAttribute('aria-expanded', String(abierto));
-      menuBtn.setAttribute('aria-label', abierto ? 'Cerrar menu de navegacion' : 'Abrir menu de navegacion');
+      menuBtn.setAttribute('aria-label', abierto ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
     });
 
     nav.querySelectorAll('a').forEach(function (enlace) {
@@ -118,25 +118,34 @@
   var visorTexto = document.getElementById('visorTexto');
   var visorContador = document.getElementById('visorContador');
   var items = Array.prototype.slice.call(document.querySelectorAll('.galeria__item, .capitulo__fondo'));
+  var lista = items;          // las que el visor recorre en este momento
   var actual = 0;
   var ultimoBoton = null;
 
-  function mostrar(indice) {
-    if (!items.length) return;
-    actual = (indice + items.length) % items.length;
+  // Solo las que estan a la vista: si la galeria esta filtrada (galeria.html),
+  // las escondidas no tienen que aparecer al usar las flechas.
+  function visibles() {
+    var alaVista = items.filter(function (boton) { return boton.offsetParent !== null; });
+    return alaVista.length ? alaVista : items;
+  }
 
-    var boton = items[actual];
+  function mostrar(indice) {
+    if (!lista.length) return;
+    actual = (indice + lista.length) % lista.length;
+
+    var boton = lista[actual];
     var img = boton.querySelector('img');
 
     visorImg.src = img.currentSrc || img.src;
     visorImg.alt = img.alt || '';
     visorTexto.textContent = boton.dataset.texto || img.alt || '';
-    visorContador.textContent = (actual + 1) + ' / ' + items.length;
+    visorContador.textContent = (actual + 1) + ' / ' + lista.length;
   }
 
-  function abrir(indice, boton) {
+  function abrir(boton) {
     ultimoBoton = boton || null;
-    mostrar(indice);
+    lista = visibles();
+    mostrar(lista.indexOf(boton));
     visor.hidden = false;
     document.body.classList.add('sin-scroll');
     document.getElementById('visorCerrar').focus();
@@ -148,8 +157,8 @@
     if (ultimoBoton) ultimoBoton.focus();
   }
 
-  items.forEach(function (boton, i) {
-    boton.addEventListener('click', function () { abrir(i, boton); });
+  items.forEach(function (boton) {
+    boton.addEventListener('click', function () { abrir(boton); });
   });
 
   if (visor) {
